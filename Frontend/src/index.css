@@ -17,6 +17,10 @@ main {
   font-family: "Roboto";
 }
 
+input, textarea {
+  outline: none;
+}
+
 .customScroll::-webkit-scrollbar {
   width: 8px !important; /* width of the entire scrollbar */
   scroll-behavior: smooth !important;

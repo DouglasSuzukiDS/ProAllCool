@@ -16,7 +16,9 @@
   font-family: 'Roboto';
 }
 
-
+input, textarea {
+  outline: none;
+}
 
 // #excursions::-webkit-scrollbar, 
 .customScroll::-webkit-scrollbar {
