@@ -41,6 +41,14 @@ input, textarea {
 }
 
 @media(max-width: 350px) {
+  #h1-newExcursion {
+    font-size: 20px;
+  }
+
+  #dates {
+    flex-direction: column;
+  }
+
   footer {
     flex-direction: column;
   }

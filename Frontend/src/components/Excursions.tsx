@@ -7,6 +7,16 @@ import { ExcursionsContext } from "../contexts/ExcursionsContext"
 export const Excursions = () => {
    const [showBahamasClubModal, setShowBahamasClubModal] = useState(false)
 
+   const [thumbnail, setThumbnail] = useState('')
+   const [titleExc, setTitleExc] = useState('')
+   const [prevValueExc, setPrevValueExc] = useState('')
+   const [currentValueExc, setCurrentValueExc] = useState('')
+   const [descriptionExc, setDescriptionExc] = useState('')
+   const [dateExc, setDateExc] = useState('')
+   const [returnExc, setReturnExc] = useState('')
+   const [openModalExc, setOpenModalExc] = useState('')
+   const [toEdit, setToEdit] = useState(false)
+
    const excursionsCTX = useContext(ExcursionsContext)
 
    useEffect(() => {
@@ -40,7 +50,17 @@ export const Excursions = () => {
                
                {
                   excursionsCTX?.excursions.map(excursion => (
-                     <Excursion excursion={ excursion } key={ excursion.id } />
+                     <Excursion key={ excursion.id } 
+                        excursion={ excursion } 
+                        thumbnail={ thumbnail } setThumbnail={ setThumbnail }
+                        titleExc={ titleExc } setTitleExc={ setTitleExc }
+                        prevValueExc={ prevValueExc } setPrevValueExc={ setPrevValueExc }
+                        currentValueExc={ currentValueExc } setCurrentValueExc={ setCurrentValueExc }
+                        descriptionExc={ descriptionExc } setDescriptionExc={ setDescriptionExc }
+                        dateExc={ dateExc } setDateExc = { setDateExc }
+                        returnExc={ returnExc } setReturnExc={ setReturnExc }
+                        openModalExc={ openModalExc } setOpenModalExc={ setOpenModalExc }
+                        toEdit={ toEdit } setToEdit={ setToEdit } />
                   ))
                }
             </div>

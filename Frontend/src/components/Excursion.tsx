@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import Bahamas01 from '../assets/images/BahamasClub01.png'
 
@@ -9,6 +9,9 @@ import DefaultImage from '../assets/images/DefaultImage.png'
 import { BahamasClubModal } from '../modals/BahamasClubModal'
 import { DefaultModal } from '../modals/DefaultModal'
 import { Props } from '../types/Props'
+import { PenToSquare } from '../assets/icons/PenToSquare'
+import { TrashCan } from '../assets/icons/TrashCan'
+import { ExcursionsContext } from '../contexts/ExcursionsContext'
 
 const card = [
    'flex',
@@ -35,7 +38,8 @@ const images = {
 
 type ImageKeys = 'Bahamas01' | 'JapanTour01' | 'DefaultImage'
 
-export const Excursion = ({ excursion }: Props) => {
+export const Excursion = ({ excursion, toEdit, setToEdit }: Props) => {
+   const excursionCTX = useContext(ExcursionsContext)
 
   const [showDefaultModal, setShowDefaultModal] = useState(false)
   const [showBahamasClubModal, setShowBahamasClubModal] = useState(false)
@@ -46,6 +50,14 @@ export const Excursion = ({ excursion }: Props) => {
 
   const toShowBahamasClubModal = () => {
    setShowBahamasClubModal(!showBahamasClubModal)
+  }
+
+  const handleEditExcursion = (id: number) => {
+   excursionCTX?.editExcursion(id)
+  }
+
+  const handleDeleteExcursion = (id: number) => {
+   excursionCTX?.deleteExcursion(id)
   }
 
    return (
@@ -107,14 +119,15 @@ export const Excursion = ({ excursion }: Props) => {
          } */}
 
          <div className='p-1 flex flex-col justify-center items-center border border-red-600 customScroll gap-2'>
+            
             <h3 className='text-base font-bold text-center text-blue-600'>{ excursion.titleExc }</h3>
 
-            <span className='flex gap-4 justify-center items-center text-center italic'>
+            <span id='values' className='flex gap-4 justify-center items-center text-center italic'>
                <p className='text-xs text-red-600 font-bold line-through'>De: R$ { excursion.prevValueExc }</p>
                <p className='text-sky-600 underline font-bold'>Por: R$ { excursion.currentValueExc }</p>
             </span>
 
-            <span className='flex gap-4 justify-center items-center text-center italic font-bold'>
+            <span id='dates' className='flex gap-4 justify-center items-center text-center italic font-bold'>
                <p className='text-indigo-600'>
                   Ida: <span className='text-purple-600'>{ excursion.dateExc }</span>
                </p>
@@ -131,6 +144,14 @@ export const Excursion = ({ excursion }: Props) => {
             <button 
                onClick={ excursion.openModal ===  'DefaultModal' ? `${eval(excursion.openModal)}` : toShowDefaultModal }>Abrir</button>
             {/* <button onClick={ toShowDefaultModal }>Modal</button> */}
+            <span className='flex gap-2'>
+               <PenToSquare w='24' h='24' fill='#0284C7'    className='hover:opacity-60 hover:duration-700' 
+               onClick={ () => handleEditExcursion(excursion.id) }/>
+
+               <TrashCan w='24' h='24' fill='#DC2626' 
+               className='hover:opacity-60 hover:duration-700'
+               onClick={ () => handleDeleteExcursion(excursion.id) } />
+            </span>
          </div>
 
       </article>

@@ -48,7 +48,7 @@ export const RegisterNewExcursion = () => {
 
    return (
       <div className="border border-red-600 flex flex-col font-semibold w-[350px]">
-         <h1 className="flex justify-center text-2xl text-sky-600 font-bold">Registro de Excursão</h1>
+         <h1 id="h1-newExcursion" className="flex justify-center text-2xl text-sky-600 font-bold">Registro de Excursão</h1>
 
          <input 
             type="text" 

@@ -16,6 +16,8 @@ type ExcursionContextType = {
    dispatch: Dispatch<ExcursionsAction>
    getExcursions: () => void
    addExcursion: (newExcursion: Excursion) => void
+   editExcursion: (idExcursion: number) => void
+   deleteExcursion: (idExcursion: number) => void
 }
 
 export const ExcursionsContext = createContext<ExcursionContextType | null>(null)
@@ -45,8 +47,24 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
          .catch(err => console.log(err))
    }
 
+   const editExcursion = async(idExcursion: number) => {
+      await baseURL.put(`/excursion/${idExcursion}`)
+         .then(res => {
+            res.status === 200 && getExcursions()
+         })
+         .catch(err => console.log(err))
+   }
+
+   const deleteExcursion = async(idExcursion: number) => {
+      await baseURL.delete(`/excursion/${idExcursion}`)
+         .then(res => {
+            res.status === 200 && getExcursions()
+         })
+         .catch(err => console.log(err))
+   }
+
    return(
-      <ExcursionsContext.Provider value={{ excursions, dispatch, getExcursions, addExcursion }}>
+      <ExcursionsContext.Provider value={{ excursions, dispatch, getExcursions, addExcursion, editExcursion, deleteExcursion }}>
          { children }
       </ExcursionsContext.Provider>
    )
