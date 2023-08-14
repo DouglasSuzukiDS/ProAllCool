@@ -33,11 +33,11 @@ server.get('/', (req, res) => {
 })
 
 server.post('/excursion', (req, res) => {
-   const { thumb, title, prevValueExc, valueExc, descriptionExc, dateExc, returnExc } = req.body
+   const { thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, openModal } = req.body
 
-   const query = `INSERT INTO excursions (thumb, title, prevValueExc, valueExc, descriptionExc, dateExc, returnExc) VALUES (?, ?, ?, ?, ?, ?, ?)`
+   const query = `INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, openModal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
 
-   db.query(query, [thumb, title, prevValueExc, valueExc, descriptionExc, dateExc, returnExc] , (err, result) => {
+   db.query(query, [thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, openModal] , (err, result) => {
       if(err) {
          console.log(err)
          res.status(404).send({ msg: 'Erro adicionar excursão.'})
@@ -49,7 +49,7 @@ server.post('/excursion', (req, res) => {
 
 server.put('/excursion/:id', (req, res) => {
    const { id } = req.params
-   const { thumb, title, prevValueExc, valueExc, descriptionExc, dateExc, returnExc } = req.body
+   const { thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, openModal } = req.body
 
    const checkIfExcursionExist = `SELECT * FROM excursions WHERE id = ${ id }`
 
@@ -61,9 +61,9 @@ server.put('/excursion/:id', (req, res) => {
          res.status(400).send({ msg: 'Erro ao encontrar excursão para editar.'})
       } else {
          console.log(JSON.stringify(result), id)
-         const query = `UPDATE excursions SET thumb = ?, title = ?, prevValueExc = ?, valueExc = ?, descriptionExc = ?, dateExc = ?, returnExc = ? WHERE id = ${ id }`
+         const query = `UPDATE excursions SET thumbnail = ?, titleExc = ?, prevValueExc = ?, currentValueExc = ?, descriptionExc = ?, dateExc = ?, returnExc = ? WHERE id = ${ id }`
          
-         db.query(query, [ thumb, title, prevValueExc, valueExc, descriptionExc, dateExc, returnExc] , (err, result) => {
+         db.query(query, [ thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, openModal] , (err, result) => {
             if(err) {
                console.log(err)
                res.status(404).send({ msg: 'Erro editar excursão.'})
@@ -87,6 +87,28 @@ server.delete('/excursion/:id', (req, res) => {
          res.status(404).send({ msg: 'Erro ao tentar excluir excursão.'})
       } else {
          res.status(200).send({ msg: 'Excursão excluida com sucesso.' })
+      }
+   })
+})
+
+server.delete('/AllExcursions', (req, res) => {
+
+   const query = `DELETE FROM excursions`
+   const reset = `ALTER TABLE excursions AUTO_INCREMENT = 1`
+
+   db.query(query, (err, result) => {
+      if(err) {
+         console.log(err)
+         res.status(404).send({ msg: 'Erro ao tentar excluir excursão.'})
+      } else {
+         db.query(reset, (err, result) => {
+            if(err) {
+               console.log(err)
+               res.status(404).send({ msg: 'Erro ao tentar resetar o auto increment.'})
+            } else {
+               res.status(200).send({ msg: 'Excursões deletadas e ID resetado.' })
+            }
+         })
       }
    })
 })

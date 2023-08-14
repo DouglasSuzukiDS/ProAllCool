@@ -1,4 +1,13 @@
-import Bahamas01  from  '../assets/images/BahamasClub01.png'
+import { useState } from 'react'
+
+import Bahamas01 from '../assets/images/BahamasClub01.png'
+
+import JapanTour01 from '../assets/images/JapanTour01.png'
+
+import DefaultImage from '../assets/images/DefaultImage.png'
+
+import { BahamasClubModal } from '../modals/BahamasClubModal'
+import { DefaultModal } from '../modals/DefaultModal'
 import { Props } from '../types/Props'
 
 const card = [
@@ -6,7 +15,7 @@ const card = [
    'text-sm',
    'gap-2',
    'p-4',
-   'border-2', 
+   'border-2',
    'border-blue-600',
    'rounded-lg',
    'w-[450px]',
@@ -18,9 +27,34 @@ const card = [
    'customScroll',
 ].join(' ')
 
-export const Excursion = ({ showModal }: Props) => {
-   return(
-      <article id='card' className={ card }>
+const images = {
+   'Bahamas01': Bahamas01, 
+   'JapanTour01': JapanTour01, 
+   'DefaultImage': DefaultImage
+}
+
+type ImageKeys = 'Bahamas01' | 'JapanTour01' | 'DefaultImage'
+
+export const Excursion = ({ excursion }: Props) => {
+
+  const [showDefaultModal, setShowDefaultModal] = useState(false)
+  const [showBahamasClubModal, setShowBahamasClubModal] = useState(false)
+
+  const toShowDefaultModal = () => {
+   setShowDefaultModal(!showDefaultModal)
+  }
+
+  const toShowBahamasClubModal = () => {
+   setShowBahamasClubModal(!showBahamasClubModal)
+  }
+
+   return (
+      <>
+      { showDefaultModal && <DefaultModal /> }
+
+      { showBahamasClubModal && <BahamasClubModal /> }
+
+      {/* <article id='card' className={ card }>
          <img src={ Bahamas01 } alt="Bahamas Club Thumb" className='rounded-lg w-1/2 h-auto' />
 
          <div className='p-1 flex flex-col justify-center items-center border border-red-600 customScroll gap-2'>
@@ -48,6 +82,58 @@ export const Excursion = ({ showModal }: Props) => {
             <button onClick={ showModal }>Abrir</button>
          </div>
 
+      </article> */}
+
+      <article id='card' className={card}>
+         {/* { images.includes(excursion.thumbnail) ? 'Sim' : 'Não' }
+         { excursion.thumbnail  } */}
+         <img 
+            src={ images.hasOwnProperty(excursion.thumbnail as ImageKeys) ? images[excursion.thumbnail as ImageKeys] : DefaultImage } 
+            alt={ excursion.titleExc } 
+            className='rounded-lg w-1/2 h-auto' /> 
+
+         {/* { excursion.thumbnail === 'Bahamas01' &&
+            <img 
+               src={ Bahamas01 } 
+               alt={ excursion.titleExc } 
+               className='rounded-lg w-1/2 h-auto' /> 
+         }
+
+         { excursion.thumbnail === 'JapanTour01' &&
+            <img 
+               src={ JapanTour01 } 
+               alt={ excursion.titleExc } 
+               className='rounded-lg w-1/2 h-auto' /> 
+         } */}
+
+         <div className='p-1 flex flex-col justify-center items-center border border-red-600 customScroll gap-2'>
+            <h3 className='text-base font-bold text-center text-blue-600'>{ excursion.titleExc }</h3>
+
+            <span className='flex gap-4 justify-center items-center text-center italic'>
+               <p className='text-xs text-red-600 font-bold line-through'>De: R$ { excursion.prevValueExc }</p>
+               <p className='text-sky-600 underline font-bold'>Por: R$ { excursion.currentValueExc }</p>
+            </span>
+
+            <span className='flex gap-4 justify-center items-center text-center italic font-bold'>
+               <p className='text-indigo-600'>
+                  Ida: <span className='text-purple-600'>{ excursion.dateExc }</span>
+               </p>
+
+               <p className='text-purple-600'>
+                  Retorno: <span className='text-indigo-600'>{ excursion.returnExc }</span>
+               </p>
+            </span>
+
+            <p className='text-center border flex-1 text-sm text-light overflow-y-auto customScroll'>
+               { excursion.descriptionExc  }
+            </p>
+
+            <button 
+               onClick={ excursion.openModal ===  'DefaultModal' ? `${eval(excursion.openModal)}` : toShowDefaultModal }>Abrir</button>
+            {/* <button onClick={ toShowDefaultModal }>Modal</button> */}
+         </div>
+
       </article>
+      </>
    )
 }

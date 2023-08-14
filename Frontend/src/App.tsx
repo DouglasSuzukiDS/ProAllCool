@@ -1,6 +1,7 @@
 import { Excursions } from "./components/Excursions"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
+import { ExcursionsProvider } from "./contexts/ExcursionsContext"
 
 function App() {
 
@@ -10,7 +11,9 @@ function App() {
         <section className="container container-lg flex justify-between flex-col p-4 h-full border border-yellow-600 rounded-lg">
           
           <Header />
-          <Excursions />
+          <ExcursionsProvider>
+            <Excursions />
+          </ExcursionsProvider>
           <Footer />
         </section>
 

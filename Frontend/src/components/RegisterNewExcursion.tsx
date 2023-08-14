@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { api } from "../api/Api"
+import { useContext, useState } from "react"
+import { ExcursionsContext } from "../contexts/ExcursionsContext"
 
 const btnHover = [
    'hover:text-dark',
@@ -9,22 +9,41 @@ const btnHover = [
 
 export const RegisterNewExcursion = () => {
    const [thumbnail, setThumbnail] = useState('')
-   const [title, setTitle] = useState('')
-   const [prevValueExc, setprevValueExc] = useState('')
+   const [titleExc, setTitleExc] = useState('')
+   const [prevValueExc, setPrevValueExc] = useState('')
    const [currentValueExc, setCurrentValueExc] = useState('')
    const [descriptionExc, setDescriptionExc] = useState('')
    const [dateExc, setDateExc] = useState('')
    const [returnExc, setReturnExc] = useState('')
    const [openModalExc, setOpenModalExc] = useState('')
 
-   const handleSendFile = async() => {
-      await api.post('/excursion', {
-         title, thumbnail, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc
-      })
-         .then(res => {
-            console.log(res)
-         }) 
-         .catch(err => console.log(err))
+   const excursionCTX = useContext(ExcursionsContext)
+
+   const handleAddExcursion = () => {
+      if(titleExc !== '' && prevValueExc !== '' && currentValueExc !== '' && descriptionExc !== '' && dateExc  !== '' && returnExc !== '') {
+         excursionCTX?.addExcursion({
+            thumbnail: thumbnail !== '' ? thumbnail : 'DefaultImage',
+            titleExc,
+            prevValueExc,
+            currentValueExc,
+            descriptionExc,
+            dateExc,
+            returnExc,
+            // openModal: openModalExc !== '' ? `< ${openModalExc} />` : '< DefaultModal />', 
+            openModal: openModalExc !== '' ? 'Tem valor' : 'Não Tem', 
+         })
+
+         setThumbnail('')
+         setTitleExc('')
+         setPrevValueExc('')
+         setCurrentValueExc('')
+         setDescriptionExc('')
+         setDateExc('')
+         setReturnExc('')
+         setOpenModalExc('')
+      } else {
+         alert('Por obséquio preencha os campos necessários.')
+      }
    }
 
    return (
@@ -42,8 +61,8 @@ export const RegisterNewExcursion = () => {
             type="text" 
             placeholder="Título da Excursão"
             className="border-b border-sky-600 bg-transparent p-2 mb-2 text-center text-blue-600"
-            value={ title }
-            onChange={ e => setTitle(e.target.value) } />
+            value={ titleExc }
+            onChange={ e => setTitleExc(e.target.value) } />
          
          <div className='flex justify-between gap-2'>
             <input 
@@ -51,7 +70,7 @@ export const RegisterNewExcursion = () => {
                placeholder="Valor anterior"
                className="border-b border-sky-600 bg-transparent p-2 mb-2 text-center text-red-600 w-1/2"
                value={ prevValueExc } 
-               onChange={ e => setprevValueExc(e.target.value) } />
+               onChange={ e => setPrevValueExc(e.target.value) } />
 
             <input 
                type="text" 
@@ -93,7 +112,7 @@ export const RegisterNewExcursion = () => {
 
          <button
             className={`font-bold border border-blue-600 text-light rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
-            onClick={ handleSendFile } >
+            onClick={ handleAddExcursion } >
             Enviar
          </button>
       </div>

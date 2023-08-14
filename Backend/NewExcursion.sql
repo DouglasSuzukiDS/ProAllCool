@@ -4,10 +4,10 @@ USE excursions;
 
 CREATE TABLE excursions (
    id INTEGER PRIMARY KEY AUTO_INCREMENT,
-   thumbnail VARCHAR(50),
+   thumbnail VARCHAR(50) DEFAULT 'DefaultImage',
    titleExc VARCHAR(255) NOT NULL,
    prevValueExc VARCHAR(20) NOT NULL,
-   currentCalueExc VARCHAR(20) NOT NULL,
+   currentValueExc VARCHAR(20) NOT NULL,
    descriptionExc MEDIUMTEXT NOT NULL,
    dateExc VARCHAR(20) NOT NULL,
    returnExc VARCHAR(20) NOT NULL,

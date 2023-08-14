@@ -1,4 +1,6 @@
+import { Excursion } from "./Excursion"
+
 export type Props = {
-   showModal?: () => void
-   close?: () => void
+   excursion: Excursion
+   
 }
