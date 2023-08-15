@@ -1,13 +1,14 @@
 import { useContext, useState } from "react"
 import { ExcursionsContext } from "../contexts/ExcursionsContext"
+import { Props } from "../types/Props"
 
-const btnHover = [
-   'hover:text-dark',
-   'hover:border-blue-300',
-   'hover:bg-blue-600'
-].join(' ')
+export const RegisterNewExcursion = ({ toEdit }: Props) => {
+   const btnHover = [
+      toEdit ? 'hover:text-dark' : 'hover:text-blue-300',
+      toEdit ? 'hover:border-cyan-300' : 'hover:border-blue-300',
+      toEdit ? 'hover:bg-cyan-600' : 'hover:bg-blue-600'
+   ].join(' ')
 
-export const RegisterNewExcursion = () => {
    const [thumbnail, setThumbnail] = useState('')
    const [titleExc, setTitleExc] = useState('')
    const [prevValueExc, setPrevValueExc] = useState('')
@@ -46,9 +47,41 @@ export const RegisterNewExcursion = () => {
       }
    }
 
+   const handleEditExcursion = () => {
+      alert('Edit')
+      /*if(titleExc !== '' && prevValueExc !== '' && currentValueExc !== '' && descriptionExc !== '' && dateExc  !== '' && returnExc !== '') {
+         excursionCTX?.editExcursion({
+            thumbnail: thumbnail !== '' ? thumbnail : 'DefaultImage',
+            titleExc,
+            prevValueExc,
+            currentValueExc,
+            descriptionExc,
+            dateExc,
+            returnExc,
+            // openModal: openModalExc !== '' ? `< ${openModalExc} />` : '< DefaultModal />', 
+            openModal: openModalExc !== '' ? 'Tem valor' : 'Não Tem', 
+         })
+
+         setThumbnail('')
+         setTitleExc('')
+         setPrevValueExc('')
+         setCurrentValueExc('')
+         setDescriptionExc('')
+         setDateExc('')
+         setReturnExc('')
+         setOpenModalExc('')
+      } else {
+         alert('Por obséquio preencha os campos necessários.')
+      }*/
+   }
+   
+
    return (
       <div className="border border-red-600 flex flex-col font-semibold w-[350px]">
-         <h1 id="h1-newExcursion" className="flex justify-center text-2xl text-sky-600 font-bold">Registro de Excursão</h1>
+         <h1 id="h1-newExcursion" 
+            className={`flex justify-center text-2xl font-bold ${ toEdit ? 'text-cyan-600 ' : 'text-sky-600 font-bold' } `}>
+            { toEdit ? 'Edição de Excursão' : 'Registro de Excursão' } 
+         </h1>
 
          <input 
             type="text" 
@@ -109,12 +142,20 @@ export const RegisterNewExcursion = () => {
             value={ openModalExc }
             onChange={ e => setOpenModalExc(e.target.value) } />
         
+         { toEdit ? 
+            <button
+               className={`font-bold border border-cyan-600 text-cyan-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
+               onClick={ handleEditExcursion } >
+               Editar
+            </button> :
+            <button
+               className={`font-bold border border-blue-600 text-blue-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
+               onClick={ handleAddExcursion } >
+               Enviar
+            </button>
+         }
 
-         <button
-            className={`font-bold border border-blue-600 text-light rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
-            onClick={ handleAddExcursion } >
-            Enviar
-         </button>
+         
       </div>
    )
 }

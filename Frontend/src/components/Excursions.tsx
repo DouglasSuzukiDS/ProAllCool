@@ -15,7 +15,7 @@ export const Excursions = () => {
    const [dateExc, setDateExc] = useState('')
    const [returnExc, setReturnExc] = useState('')
    const [openModalExc, setOpenModalExc] = useState('')
-   const [toEdit, setToEdit] = useState(false)
+   const [toEdit, setToEdit] = useState(true)
 
    const excursionsCTX = useContext(ExcursionsContext)
 
@@ -42,7 +42,7 @@ export const Excursions = () => {
             { showBahamasClubModal && <BahamasClubModal /> }
 
             <div id="excursionsArea" className="absolute z-0 flex flex-wrap justify-center p-4 my-4 gap-4 border border-green-600 rounded-lg w-full flex-1 overflow-y-auto customScrol">
-               <RegisterNewExcursion />
+               <RegisterNewExcursion toEdit={ toEdit } />
                {/* <Excursion showModal={ toogleBahamasClubModal } close={ toogleBahamasClubModal } />
                <Excursion showModal={ toogleBahamasClubModal } close={ toogleBahamasClubModal } />
                <Excursion showModal={ toogleBahamasClubModal } close={ toogleBahamasClubModal } />

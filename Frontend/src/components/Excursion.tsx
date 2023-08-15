@@ -1,8 +1,15 @@
 import { useState, useContext } from 'react'
 
+// Import das Imagens das excursões
 import Bahamas01 from '../assets/images/BahamasClub01.png'
 
 import JapanTour01 from '../assets/images/JapanTour01.png'
+
+import Tambaba01 from '../assets/images/Tambaba01.png'
+
+import SaoThome01 from '../assets/images/SaoThome01.png'
+
+import PattayaTour01 from '../assets/images/PattayaTour01.png'
 
 import DefaultImage from '../assets/images/DefaultImage.png'
 
@@ -30,13 +37,17 @@ const card = [
    'customScroll',
 ].join(' ')
 
+// Associa o inserido no campo 'Thumbnail' à imagem
 const images = {
    'Bahamas01': Bahamas01, 
    'JapanTour01': JapanTour01, 
+   'Tambaba01': Tambaba01,
+   'SaoThome01': SaoThome01,
+   'PattayaTour01': PattayaTour01,
    'DefaultImage': DefaultImage
 }
 
-type ImageKeys = 'Bahamas01' | 'JapanTour01' | 'DefaultImage'
+type ImageKeys = 'Bahamas01' | 'JapanTour01' | 'Tambaba01' | 'SaoThome01'| 'PattayaTour01' | 'DefaultImage'
 
 export const Excursion = ({ excursion, toEdit, setToEdit }: Props) => {
    const excursionCTX = useContext(ExcursionsContext)
@@ -146,11 +157,11 @@ export const Excursion = ({ excursion, toEdit, setToEdit }: Props) => {
             {/* <button onClick={ toShowDefaultModal }>Modal</button> */}
             <span className='flex gap-2'>
                <PenToSquare w='24' h='24' fill='#0284C7'    className='hover:opacity-60 hover:duration-700' 
-               onClick={ () => handleEditExcursion(excursion.id) }/>
+               onClick={ () => handleEditExcursion(excursion.id as number) }/>
 
                <TrashCan w='24' h='24' fill='#DC2626' 
                className='hover:opacity-60 hover:duration-700'
-               onClick={ () => handleDeleteExcursion(excursion.id) } />
+               onClick={ () => handleDeleteExcursion(excursion.id as number) } />
             </span>
          </div>
 
