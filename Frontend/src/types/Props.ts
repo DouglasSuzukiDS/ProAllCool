@@ -30,4 +30,24 @@ export type Props = {
 
    toEdit?: boolean
    setToEdit?: Dispatch<SetStateAction<boolean>>
+
+   // Modals
+
+   showBahamasModal?: boolean
+   setShowBahamasModal?: Dispatch<SetStateAction<boolean>>
+
+   showJapanModal?: boolean
+   setShowJapanModal?: Dispatch<SetStateAction<boolean>>
+
+   showTambabaModal?: boolean
+   setShowTambabaModal?: Dispatch<SetStateAction<boolean>>
+
+   showSaoThomeModal?: boolean
+   setShowSaoThomeModal?: Dispatch<SetStateAction<boolean>>
+
+   showPattayaModal?: boolean
+   setShowPattayaModal?: Dispatch<SetStateAction<boolean>>
+
+   showDefaultModal?: boolean
+   setShowDefaultModal?: Dispatch<SetStateAction<boolean>>
 }

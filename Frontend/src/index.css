@@ -45,6 +45,14 @@ input, textarea {
   #dates {
     flex-direction: column;
   }
+  #card #btn-group {
+    border: 1px solid red;
+    gap: 8px !important;
+    flex-direction: column;
+  }
+  #card #btn-group button {
+    width: 100% !important;
+  }
   footer {
     flex-direction: column;
   }
@@ -71,5 +79,11 @@ input, textarea {
   #card p {
     font-size: 14px;
     text-align: center;
+  }
+  #card #btn-group {
+    gap: 16px;
+  }
+  #card #btn-group button {
+    width: 50%;
   }
 }/*# sourceMappingURL=index.css.map */

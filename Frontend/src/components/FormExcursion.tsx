@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { ExcursionsContext } from "../contexts/ExcursionsContext"
 import { Props } from "../types/Props"
 
-export const RegisterNewExcursion = ({ toEdit }: Props) => {
+export const FormExcursion = ({ toEdit }: Props) => {
    const btnHover = [
       toEdit ? 'hover:text-dark' : 'hover:text-blue-300',
       toEdit ? 'hover:border-cyan-300' : 'hover:border-blue-300',
