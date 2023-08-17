@@ -35,7 +35,7 @@ export const FormExcursion = ({
             dateExc: descriptionExc!,
             returnExc: returnExc!,
             //openModal: openModalExc !== '' ? `< ${openModalExc} />` : '< DefaultModal />', 
-            openModal: openModalExc !== '' ? 'Tem valor' : 'Não Tem', 
+            openModal: openModalExc !== '' ? openModalExc! : 'DefaultModal', 
          })
 
          setThumbnailExc!('')

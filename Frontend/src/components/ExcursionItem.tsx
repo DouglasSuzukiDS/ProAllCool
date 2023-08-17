@@ -1,5 +1,5 @@
 import { Props } from '../types/Props'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { ExcursionsContext } from '../contexts/ExcursionsContext'
 
 import { PenToSquare } from '../assets/icons/PenToSquare'
@@ -17,22 +17,13 @@ import SaoThome01 from '../assets/images/SaoThome01.png'
 import PattayaTour01 from '../assets/images/PattayaTour01.png'
 
 import DefaultImage from '../assets/images/DefaultImage.png'
-
-// Modals
-import { BahamasModal } from '../modals/BahamasModal'
-import { JapanModal } from '../modals/JapanModal'
-import { PattayaModal } from '../modals/PattayaModal'
-import { SaoThomeModal } from '../modals/SaoThomeModal'
-import { TambabaModal } from '../modals/TambabaModal'
-import { DefaultModal } from '../modals/DefaultModal'
 import { Excursion } from '../types/Excursion'
 
-export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit, editExcursion, setEditExcursion, titleExc,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc }: Props) => {
-   useEffect(() => {
-      titleExc
-   }, [titleExc])
+
+export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc }: Props) => {
    const excursionCTX = useContext(ExcursionsContext)
 
+   // Style Classes
    const card = [
       'flex',
       'text-sm',
@@ -50,27 +41,31 @@ export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit, editExc
       'customScroll',
    ].join(' ')
 
-   // Associa o inserido no campo 'Thumbnail' à imagem
-   const images = {
-      'Bahamas01': Bahamas01,
-      'JapanTour01': JapanTour01,
-      'Tambaba01': Tambaba01,
-      'SaoThome01': SaoThome01,
-      'PattayaTour01': PattayaTour01,
-      'DefaultImage': DefaultImage
+   const btnHover = [
+      toEdit ? 'hover:text-dark' : 'hover:text-blue-300',
+      toEdit ? 'hover:border-cyan-300' : 'hover:border-blue-300',
+      toEdit ? 'hover:bg-cyan-600' : 'hover:bg-blue-600'
+   ].join(' ')
+
+   // Show the Thumbnail
+   const showThumbnail = (thumbail: string) => {
+      switch(thumbail) {
+         case 'Bahamas01':
+            return Bahamas01
+         case'JapanTour01':
+            return JapanTour01
+         case 'Tambaba01':
+            return Tambaba01
+         case 'SaoThome01':
+            return SaoThome01
+         case 'PattayaTour01' :
+            return PattayaTour01
+         default: 
+            return DefaultImage
+      }
    }
 
-   type ImageKeys = 'Bahamas01' | 'JapanTour01' | 'Tambaba01' | 'SaoThome01' | 'PattayaTour01' | 'DefaultImage'
-
-   const modals = {
-      'BahamasModal': BahamasModal,
-      'JapanModal': JapanModal,
-      'TambabaModal': TambabaModal,
-      'SaoThomeModal': SaoThomeModal,
-      'PattayaModal': PattayaModal,
-      'DefaultModal': DefaultModal
-   }
-
+   // Get Excurion for edit
    const handleGetExcursionToEdit = (excursion: Excursion) => {
       console.log(excursion)
       if(setToEdit && setIdExc && setThumbnailExc && setTitleExc && setPrevValueExc && setCurrentValueExc && setDescriptionExc && setDateExc && setReturnExc && setOpenModalExc) {
@@ -88,41 +83,18 @@ export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit, editExc
       }
    }
 
+   // Delete Excursion
    const handleDeleteExcursion = (id: number) => {
       excursionCTX?.deleteExcursion(id)
    }
 
-
-   const btnHover = [
-      toEdit ? 'hover:text-dark' : 'hover:text-blue-300',
-      toEdit ? 'hover:border-cyan-300' : 'hover:border-blue-300',
-      toEdit ? 'hover:bg-cyan-600' : 'hover:bg-blue-600'
-   ].join(' ')
-
-
-
    return (
       <>
-
-         {/* { showBahamasModal && <BahamasModal close={ closeModal } /> }
-
-         { showJapanModal && <JapanModal close={ closeModal } /> }
-
-         { showTambabaModal && <TambabaModal close={ closeModal } /> }
-
-         { showSaoThomeModal && <SaoThomeModal close={ closeModal } /> }
-
-         { showPattayaModal && <PattayaModal close={ closeModal } /> }
-
-         { showDefaultModal && <DefaultModal close={ closeModal } /> } */}
-
          { excursion &&
             <article id='card' className={card}>
-               {/* { images.includes(excursion.thumbnail) ? 'Sim' : 'Não' }
-            { excursion.thumbnail  } */}
-               
+
                <img
-                  src={images.hasOwnProperty(excursion.thumbnail as ImageKeys) ? images[excursion.thumbnail as ImageKeys] : DefaultImage}
+                  src={ showThumbnail(excursion.thumbnail) }
                   alt={excursion.titleExc}
                   className='rounded-lg w-1/2 h-auto' />
 
