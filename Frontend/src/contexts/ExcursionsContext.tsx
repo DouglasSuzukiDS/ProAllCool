@@ -16,7 +16,7 @@ type ExcursionContextType = {
    dispatch: Dispatch<ExcursionsAction>
    getExcursions: () => void
    addExcursion: (newExcursion: Excursion) => void
-   editExcursion: (idExcursion: number) => void
+   editExcursion: (id: number, excursion: Excursion) => void
    deleteExcursion: (idExcursion: number) => void
 }
 
@@ -47,8 +47,8 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
          .catch(err => console.log(err))
    }
 
-   const editExcursion = async(idExcursion: number) => {
-      await baseURL.put(`/excursion/${idExcursion}`)
+   const editExcursion = async(id: number, excursion: Excursion) => {
+      await baseURL.put(`/excursion/${id}`, excursion)
          .then(res => {
             res.status === 200 && getExcursions()
          })

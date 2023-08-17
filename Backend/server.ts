@@ -61,7 +61,7 @@ server.put('/excursion/:id', (req, res) => {
          res.status(400).send({ msg: 'Erro ao encontrar excursão para editar.'})
       } else {
          console.log(JSON.stringify(result), id)
-         const query = `UPDATE excursions SET thumbnail = ?, titleExc = ?, prevValueExc = ?, currentValueExc = ?, descriptionExc = ?, dateExc = ?, returnExc = ? WHERE id = ${ id }`
+         const query = `UPDATE excursions SET thumbnail = ?, titleExc = ?, prevValueExc = ?, currentValueExc = ?, descriptionExc = ?, dateExc = ?, returnExc = ?, openModal = ? WHERE id = ${ id }`
          
          db.query(query, [ thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, openModal] , (err, result) => {
             if(err) {

@@ -37,7 +37,7 @@ type EditExcursionAction = {
 type DeleteExcursionAction = {
    type: 'delete'
    payload: {
-      id: number
+      idExc: number
    }
 }
 
@@ -50,7 +50,7 @@ export const ExcursionReducer = (excursions: Excursion[], action: ExcursionsActi
       case 'add':
          return [ ...excursions, {
             id: excursions.length + 1,
-            thumbnail: action.payload.thumbnail,
+            thumbnailExc: action.payload.thumbnail,
             titleExc: action.payload.titleExc,
             prevValueExc: action.payload.prevValueExc,
             currentValueExc: action.payload.currentValueExc,
@@ -73,7 +73,7 @@ export const ExcursionReducer = (excursions: Excursion[], action: ExcursionsActi
             }
          ]
       case 'delete': 
-         return excursions.filter(excursion => excursion.id !== action.payload.id)
+         return excursions.filter(excursion => excursion.id !== action.payload.idExc)
       default:
          return excursions
    }

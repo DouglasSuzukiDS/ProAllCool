@@ -20,6 +20,15 @@ input, textarea {
   outline: none;
 }
 
+.modal {
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  background-color: #0006;
+  z-index: 20;
+  position: absolute;
+  border-radius: 8px;
+}
+
 // #excursions::-webkit-scrollbar, 
 .customScroll::-webkit-scrollbar {
   width: 8px !important;               /* width of the entire scrollbar */
@@ -105,4 +114,8 @@ input, textarea {
     }
 
   }
+}
+
+.test {
+  overflow-y: hidden;
 }

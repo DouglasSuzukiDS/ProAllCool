@@ -21,6 +21,15 @@ input, textarea {
   outline: none;
 }
 
+.modal {
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 20;
+  position: absolute;
+  border-radius: 8px;
+}
+
 .customScroll::-webkit-scrollbar {
   width: 8px !important; /* width of the entire scrollbar */
   scroll-behavior: smooth !important;
@@ -86,4 +95,7 @@ input, textarea {
   #card #btn-group button {
     width: 50%;
   }
+}
+.test {
+  overflow-y: hidden;
 }/*# sourceMappingURL=index.css.map */

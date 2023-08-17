@@ -2,10 +2,13 @@ import { Dispatch, SetStateAction } from 'react';
 import { Excursion } from "./Excursion"
 
 export type Props = {
-   excursion: Excursion
+   excursion?: Excursion
 
-   thumbnail?: string
-   setThumbnail?: Dispatch<SetStateAction<string>>
+   idExc?: number
+   setIdExc?: Dispatch<SetStateAction<number>>
+
+   thumbnailExc?: string
+   setThumbnailExc?: Dispatch<SetStateAction<string>>
 
    titleExc?: string
    setTitleExc?: Dispatch<SetStateAction<string>>
@@ -28,10 +31,16 @@ export type Props = {
    openModalExc?: string
    setOpenModalExc?: Dispatch<SetStateAction<string>>
 
+   // Edit Excursion
    toEdit?: boolean
    setToEdit?: Dispatch<SetStateAction<boolean>>
 
+   editExcursion?: Excursion 
+   setEditExcursion?: Dispatch<SetStateAction<Excursion>>
+
    // Modals
+   showModal?: (modal: string) => void
+   closeModal?: () => void
 
    showBahamasModal?: boolean
    setShowBahamasModal?: Dispatch<SetStateAction<boolean>>

@@ -1,14 +1,16 @@
 import { useContext, useEffect, useState } from "react"
-import { BahamasModal } from "../modals/BahamasModal"
-import { Excursion } from "./Excursion"
+import { ExcursionItem } from "./ExcursionItem"
 import { FormExcursion } from "./FormExcursion"
 import { ExcursionsContext } from "../contexts/ExcursionsContext"
+import { Props } from "../types/Props"
 
-export const Excursions = () => {
+export const Excursions = ({ showModal }: Props) => {
+
    const excursionsCTX = useContext(ExcursionsContext)
 
    // Excursion Manager
-   const [thumbnail, setThumbnail] = useState('')
+   const [idExc, setIdExc] = useState(0)
+   const [thumbnailExc, setThumbnailExc] = useState('')
    const [titleExc, setTitleExc] = useState('')
    const [prevValueExc, setPrevValueExc] = useState('')
    const [currentValueExc, setCurrentValueExc] = useState('')
@@ -16,56 +18,37 @@ export const Excursions = () => {
    const [dateExc, setDateExc] = useState('')
    const [returnExc, setReturnExc] = useState('')
    const [openModalExc, setOpenModalExc] = useState('')
-   const [toEdit, setToEdit] = useState(true)
-
-   // Modals Manager
-   const [showBahamasModal, setShowBahamasModal] = useState(false)
-   const [showJapanModal, setShowJapanModal] = useState(false)
-   const [showTambabaModal, setShowTambabaModal] = useState(false)
-   const [showSaoThomeModal, setShowSaoThomeModal] = useState(false)
-   const [showPattayaModal, setShowPattayaModal] = useState(false)
-   const [showDefaultModal, setShowDefaultModal] = useState(false)
+   const [toEdit, setToEdit] = useState(false)
 
    useEffect(() => {
       excursionsCTX?.getExcursions()
    }, [])
-
-   // min-[850px]:flex-col min-[850px]:items-center
+   
    return(
       <>
-         {/* <section id="excursions" className="flex flex-wrap justify-center p-4 my-4 gap-4 border border-green-600 rounded-lg w-full flex-1 overflow-y-auto customScroll z-10">
-            { showBahamasClubModal && <BahamasClubModal /> }
-               <FormExcursion />
-               <Excursion onClick={ toogleBahamasClubModal } />
-               <Excursion onClick={ toogleBahamasClubModal } />
-               <Excursion onClick={ toogleBahamasClubModal } />
-               <Excursion onClick={ toogleBahamasClubModal } />
-         </section> */}
+         <section id="excursions" className="flex flex-wrap justify-center p-4 my-4 gap-4 border-4 border-cyan-600 rounded-lg w-full flex-1 overflow-y-auto customScroll z-10 relative">
 
-         <section id="excursions" className="flex flex-wrap justify-center p-4 my-4 gap-4 border border-green-600 rounded-lg w-full flex-1 overflow-y-auto customScroll z-10 relative">
-
-            <div id="excursionsArea" className="absolute z-0 flex flex-wrap justify-center p-4 my-4 gap-4 border border-green-600 rounded-lg w-full flex-1 overflow-y-auto customScrol">
-               <FormExcursion toEdit={toEdit} excursion={{
-                  thumbnail: "",
-                  titleExc: "",
-                  prevValueExc: "",
-                  currentValueExc: "",
-                  descriptionExc: "",
-                  dateExc: "",
-                  returnExc: "",
-                  openModal: ""
-               }} />
-               {/* <Excursion showModal={ toogleBahamasClubModal } close={ toogleBahamasClubModal } />
-               <Excursion showModal={ toogleBahamasClubModal } close={ toogleBahamasClubModal } />
-               <Excursion showModal={ toogleBahamasClubModal } close={ toogleBahamasClubModal } />
-               <Excursion showModal={ toogleBahamasClubModal } close={ toogleBahamasClubModal } /> */}
+            <div id="excursionsArea" className="absolute z-0 flex flex-wrap justify-center p-4 my-4 gap-4 border border-green-600 rounded-lg w-full flex-1 ">
+               <FormExcursion toEdit={toEdit} setToEdit={ setToEdit }
+                  idExc={ idExc } setIdExc={ setIdExc }
+                  thumbnailExc={ thumbnailExc } setThumbnailExc={ setThumbnailExc }
+                  titleExc={ titleExc } setTitleExc={ setTitleExc }
+                  prevValueExc={ prevValueExc } setPrevValueExc={ setPrevValueExc }
+                  currentValueExc={ currentValueExc } setCurrentValueExc={ setCurrentValueExc }
+                  descriptionExc={ descriptionExc } setDescriptionExc={ setDescriptionExc }
+                  dateExc={ dateExc } setDateExc = { setDateExc }
+                  returnExc={ returnExc } setReturnExc={ setReturnExc }
+                  openModalExc={ openModalExc } setOpenModalExc={ setOpenModalExc } />
                
                {
                   excursionsCTX?.excursions.map(excursion => (
-                     <Excursion key={ excursion.id } 
-                        excursion={ excursion } 
+                     <ExcursionItem key={ excursion.id } 
+                        excursion={ excursion }
+                        
+                        showModal={ showModal }
 
-                        thumbnail={ thumbnail } setThumbnail={ setThumbnail }
+                        idExc={ idExc } setIdExc={ setIdExc }
+                        thumbnailExc={ thumbnailExc } setThumbnailExc={ setThumbnailExc }
                         titleExc={ titleExc } setTitleExc={ setTitleExc }
                         prevValueExc={ prevValueExc } setPrevValueExc={ setPrevValueExc }
                         currentValueExc={ currentValueExc } setCurrentValueExc={ setCurrentValueExc }
@@ -73,25 +56,9 @@ export const Excursions = () => {
                         dateExc={ dateExc } setDateExc = { setDateExc }
                         returnExc={ returnExc } setReturnExc={ setReturnExc }
                         openModalExc={ openModalExc } setOpenModalExc={ setOpenModalExc }
-                        toEdit={ toEdit } setToEdit={ setToEdit } 
                         
-                        showBahamasModal={ showBahamasModal }
-                        setShowBahamasModal={ setShowBahamasModal }
-                               
-                        showJapanModal={ showJapanModal }
-                        setShowJapanModal={ setShowJapanModal }
-
-                        showTambabaModal={ showTambabaModal }
-                        setShowTambabaModal={ setShowTambabaModal }
-
-                        showSaoThomeModal={ showSaoThomeModal }
-                        setShowSaoThomeModal={ setShowSaoThomeModal }
-
-                        showPattayaModal={ showPattayaModal }
-                        setShowPattayaModal={ setShowPattayaModal }
-
-                        showDefaultModal={ showDefaultModal }
-                        setShowDefaultModal={ setShowDefaultModal } />
+                        toEdit={ toEdit } setToEdit={ setToEdit } 
+                     />
                   ))
                }
             </div>
