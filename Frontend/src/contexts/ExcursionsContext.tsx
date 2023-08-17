@@ -28,7 +28,7 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
    const [excursions, dispatch] = useReducer(ExcursionReducer, initialValue)
 
    const getExcursions = async() => {
-      await baseURL.get('/')
+      await baseURL.get('/excursions')
          .then(res => {
             console.log(res)
             dispatch({
