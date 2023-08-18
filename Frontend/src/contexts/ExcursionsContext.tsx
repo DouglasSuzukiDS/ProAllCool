@@ -1,11 +1,8 @@
 import { Dispatch, ReactNode, createContext, useReducer } from "react";
 import { Excursion } from "../types/Excursion";
 import { ExcursionReducer, ExcursionsAction } from "../reducers/ExcursionReducer";
-import axios from "axios";
+import { baseURL } from "../api/Api";
 
-const baseURL = axios.create({
-   baseURL: 'http://localhost:3002'
-})
 
 export type ExcursionsContextProviderType = {
    children: ReactNode
