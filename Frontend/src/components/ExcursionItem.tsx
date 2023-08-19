@@ -18,10 +18,12 @@ import PattayaTour01 from '../assets/images/PattayaTour01.png'
 
 import DefaultImage from '../assets/images/DefaultImage.png'
 import { Excursion } from '../types/Excursion'
+import { useAuth } from '../hooks/Hooks'
 
 
 export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc }: Props) => {
    const excursionCTX = useContext(ExcursionsContext)
+   const auth = useAuth()
 
    // Style Classes
    const card = [
@@ -133,14 +135,16 @@ export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit,setIdExc
                         + Infos</button>
                   </span>
 
-                  <span className='flex gap-2'>
-                     <PenToSquare w='24' h='24' fill='#0284C7' className='hover:opacity-60 hover:duration-700'
-                        onClick={() => handleGetExcursionToEdit(excursion)} />
+                  { auth?.auth &&
+                     <span className='flex gap-2'>
+                        <PenToSquare w='24' h='24' fill='#0284C7' className='hover:opacity-60 hover:duration-700'
+                           onClick={() => handleGetExcursionToEdit(excursion)} />
 
-                     <TrashCan w='24' h='24' fill='#DC2626'
-                        className='hover:opacity-60 hover:duration-700'
-                        onClick={() => handleDeleteExcursion(excursion.id as number)} />
-                  </span>
+                        <TrashCan w='24' h='24' fill='#DC2626'
+                           className='hover:opacity-60 hover:duration-700'
+                           onClick={() => handleDeleteExcursion(excursion.id as number)} />
+                     </span>
+                  }
                </div>
 
             </article>

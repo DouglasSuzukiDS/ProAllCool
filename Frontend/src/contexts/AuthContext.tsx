@@ -1,11 +1,11 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react'
+import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
 import { baseURL } from '../api/Api'
 
 export type Auth = {
    auth: boolean
    setAuth: Dispatch<SetStateAction<boolean>>
 
-   signIn: (login: string, password: string) => Promise<boolean>
+   signIn: (loginUser: string, passworUser: string) => Promise<boolean>
    logout: () => void
 }
 
@@ -14,32 +14,34 @@ export const AuthContext = createContext<Auth | null>(null)
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
    const [auth, setAuth] = useState<boolean>(false)
 
-   const signIn = async(login: string, password: string) => {
-      //alert(login+password)
-     const response = await baseURL.post('/login', { login, password } )
-      .then(res => {
-         if(res.status === 200){
-            console.log(res.status)
-            return res
-         }
-      })
-      .catch(err => {
-         console.log(err)
-         return err
-      })
-      console.log(response)
+   useEffect(() => {
+      localStorage.getItem('Auth') && setAuth(true)
+   }, [])
 
-       /*if(response.status === 200) {
-         console.log(response.status)
-         return true
-       } else {
-         alert('Erro ao logar')
-         return false
-       }*/
+
+   const signIn = async (loginUser: string, passwordUser: string) => {
+      return await baseURL.post('/login', { loginUser, passwordUser })
+         .then(res => {
+            if (res.status === 200) {
+               console.log(res.data)
+               setAuth(true)
+               createToken(res.data.token)
+      
+               return true
+            } else {
+               return false
+            }
+         })
+         .catch(err => {
+            console.log(err.response.data)
+            setAuth(false)
+            return false
+         })
 
    }
 
    const logout = () => {
+      setAuth(false)
       deleteToken()
    }
 
@@ -52,9 +54,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       localStorage.clear()
    }
 
-   return(
+   return (
       <AuthContext.Provider value={{ auth, setAuth, signIn, logout }}>
-         { children }
+         {children}
       </AuthContext.Provider>
-   )   
+   )
 }
+

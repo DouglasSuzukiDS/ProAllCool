@@ -90,8 +90,12 @@ export const FormExcursion = ({
       }
    }
 
+   const handleCancelEdit = () => {
+      
+   }
+
    return (
-      <div className="border border-red-600 flex flex-col font-semibold w-[350px]">
+      <div className="border-2 border-gray-600 rounded-lg p-4 flex flex-col font-semibold w-[350px]">
          <h1 id="h1-newExcursion" 
             className={`flex justify-center text-2xl font-bold ${ toEdit ? 'text-cyan-600 ' : 'text-sky-600 font-bold' } `}>
             { toEdit ? 'Edição de Excursão' : 'Registro de Excursão' } 
@@ -157,11 +161,19 @@ export const FormExcursion = ({
             onChange={ e => setOpenModalExc!(e.target.value) } />
         
          { toEdit ? 
-            <button
-               className={`font-bold border border-cyan-600 text-cyan-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
-               onClick={ handleEditExcursion } >
-               Editar
-            </button> :
+            <>
+               <button
+                  className={`font-bold border border-cyan-600 text-cyan-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
+                  onClick={ handleCancelEdit } >
+                  Cancelar
+               </button>
+
+               <button
+                  className={`font-bold border border-cyan-600 text-cyan-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
+                  onClick={ handleEditExcursion } >
+                  Editar
+               </button>
+            </> :
             <button
                className={`font-bold border border-blue-600 text-blue-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`} 
                onClick={ handleAddExcursion } >
