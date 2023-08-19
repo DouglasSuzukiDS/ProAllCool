@@ -21,7 +21,7 @@ import { Excursion } from '../types/Excursion'
 import { useAuth } from '../hooks/Hooks'
 
 
-export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc }: Props) => {
+export const ExcursionItem = ({ showModal, excursion, setToEdit,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc }: Props) => {
    const excursionCTX = useContext(ExcursionsContext)
    const auth = useAuth()
 
@@ -43,10 +43,16 @@ export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit,setIdExc
       'customScroll',
    ].join(' ')
 
-   const btnHover = [
-      toEdit ? 'hover:text-dark' : 'hover:text-blue-300',
-      toEdit ? 'hover:border-cyan-300' : 'hover:border-blue-300',
-      toEdit ? 'hover:bg-cyan-600' : 'hover:bg-blue-600'
+   const btnKnowHover = [
+      'hover:text-sky-300',
+      'hover:border-sky-300',
+      'hover:bg-sky-600'
+   ].join(' ')
+
+   const btnInfoHover = [
+      'hover:text-green-300',
+      'hover:border-green-300',
+      'hover:bg-green-600'
    ].join(' ')
 
    // Show the Thumbnail
@@ -123,14 +129,14 @@ export const ExcursionItem = ({ showModal, excursion, toEdit, setToEdit,setIdExc
                      {excursion.descriptionExc}
                   </p>
 
-                  <span id='btn-group' className='flex justify-between border w-full'>
+                  <span id='btn-group' className='flex justify-between border w-full gap-2'>
                      <button
-                        className={`font-bold border border-cyan-600 text-cyan-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`}
+                        className={`font-bold border border-sky-600 text-sky-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 w-1/2 ${btnKnowHover}`}
                         onClick={ () => showModal!(excursion.openModal) }>
                         Saber +</button>
                      
                      <button
-                        className={`font-bold border border-cyan-600 text-cyan-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`}
+                        className={`font-bold border border-green-600 text-green-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 w-1/2 ${btnInfoHover}`}
                         onClick={ () => showModal!(excursion.openModal) }>
                         + Infos</button>
                   </span>

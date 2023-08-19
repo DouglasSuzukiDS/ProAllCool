@@ -95,6 +95,13 @@ input, textarea {
   #card #btn-group button {
     width: 50%;
   }
+  .modal .title {
+    font-size: 20px;
+  }
+  .modal .content {
+    font-size: 14px;
+    margin: 8px 0;
+  }
 }
 .test {
   overflow-y: hidden;

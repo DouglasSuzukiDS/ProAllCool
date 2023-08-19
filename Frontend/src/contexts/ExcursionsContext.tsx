@@ -39,7 +39,11 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
    const addExcursion = async(newExcursion: Excursion) => {
       await baseURL.post('/excursion', newExcursion)
          .then(res => {
-            res.status === 201 && getExcursions()
+            // res.status === 201 && getExcursions()
+            if(res.status === 201) {
+               alert('Excursão adicionada com sucesso!')
+               getExcursions()
+            }
          })
          .catch(err => console.log(err))
    }
@@ -47,7 +51,11 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
    const editExcursion = async(id: number, excursion: Excursion) => {
       await baseURL.put(`/excursion/${id}`, excursion)
          .then(res => {
-            res.status === 200 && getExcursions()
+            // res.status === 200 && getExcursions()
+            if(res.status === 200) {
+               alert('Excursão editada com sucesso!')
+               getExcursions()
+            }
          })
          .catch(err => console.log(err))
    }
@@ -55,7 +63,11 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
    const deleteExcursion = async(idExcursion: number) => {
       await baseURL.delete(`/excursion/${idExcursion}`)
          .then(res => {
-            res.status === 200 && getExcursions()
+            // res.status === 200 && getExcursions()
+            if(res.status === 200) {
+               alert('Excursão deletada com sucesso!')
+               getExcursions()
+            }
          })
          .catch(err => console.log(err))
    }
