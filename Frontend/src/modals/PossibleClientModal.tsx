@@ -6,6 +6,7 @@ import { XMark } from "../assets/icons/XMark"
 import { Modal } from "../types/Modal"
 import { User } from '../assets/icons/User'
 import { MapLocationDot } from '../assets/icons/MapLocationDot'
+import { usePossibleClient } from '../hooks/Hooks'
 
 export const PossibleClientModal = ({ close }: Modal) => {
    const [nameExc, setNameExc] = useState('')
@@ -13,6 +14,34 @@ export const PossibleClientModal = ({ close }: Modal) => {
    const [email, setEmail] = useState('')
    const [tel, setTel] = useState('')
    const [insta, setInsta] = useState('')
+
+   const possibleClientCTX = usePossibleClient()
+
+   const handleNewPossibleClient = () => {
+      if(nameExc !== '' && name !== '' && email !== '' && tel !== '' && insta !== '') {
+         possibleClientCTX?.addPossibleClient({
+            nameExc,
+            namePosClient: name,
+            emailPosClient: email,
+            telPosClient: tel,
+            instaPosClient: insta
+         })
+
+         setNameExc('')
+         setName('')
+         setEmail('')
+         setTel('')
+         setInsta('')
+      } else {
+         alert('Por obséquio, preencha todos os campos corretamente.')
+      }
+   }
+
+   const btnHover = [
+      'hover:text-blue-300',
+      'hover:border-blue-300',
+      'hover:bg-blue-600'
+   ].join(' ')
 
    return(
       <section className="modal flex justify-center items-center">
@@ -28,7 +57,7 @@ export const PossibleClientModal = ({ close }: Modal) => {
 
             <div className="flex flex-col items-center">
                <p className="content text-center text-blue-600 text-xl my-4 max-h-[220px] overflow-y-auto customScroll">
-                  Nossa equipe irá entrar com vossa excelência o mais rápido possível
+                  Nossa equipe irá entrar com vossa excelência o mais rápido possível! 😎
                </p>
 
                <div className="flex flex-col text-indigo-600 w-fit gap-2">
@@ -68,6 +97,12 @@ export const PossibleClientModal = ({ close }: Modal) => {
                            onChange={ e => setInsta(e.target.value) } />
                      </span>
                   </form>
+
+                  <button 
+                     className={`flex justify-center text-center gap-2 font-bold border border-blue-600 text-blue-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`}
+                     onClick={ handleNewPossibleClient }>
+                     Tenho Interesse
+                  </button>
                </div>
 
             </div>

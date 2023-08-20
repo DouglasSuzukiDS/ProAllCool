@@ -8,10 +8,10 @@ CREATE TABLE possibleClient(
 );
 
 SELECT * FROM possibleClient;
-SELECT * FROM possibleClient WHERE idPosClient = 1;
+SELECT * FROM possibleClient WHERE idPosClient = 2;
 
 INSERT INTO possibleClient (namePosClient, emailPosClient, telPosClient, instaPosClient) VALUES ('Tonhao', 'tonaho@email.com', '11111111111', 'tonhao');
 
 DELETE FROM possibleClient;
-ALTER TABLE possibleClient AUTO_INCREMENT = 1;
+ALTER TABLE possibleClient AUTO_INCREMENT = 2;
 DELETE FROM possibleClient WHERE idPosClient = 1;
