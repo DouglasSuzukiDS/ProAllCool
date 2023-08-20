@@ -5,7 +5,7 @@ import { ExcursionsContext } from "../contexts/ExcursionsContext"
 import { Props } from "../types/Props"
 import { useAuth } from "../hooks/Hooks"
 
-export const Excursions = ({ showModal }: Props) => {
+export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => {
 
    const excursionsCTX = useContext(ExcursionsContext)
    const auth = useAuth()
@@ -61,6 +61,8 @@ export const Excursions = ({ showModal }: Props) => {
                         excursion={ excursion }
                         
                         showModal={ showModal }
+
+                        setShowPossibleClientModal={ setShowPossibleClientModal }
 
                         idExc={ idExc } setIdExc={ setIdExc }
                         thumbnailExc={ thumbnailExc } setThumbnailExc={ setThumbnailExc }

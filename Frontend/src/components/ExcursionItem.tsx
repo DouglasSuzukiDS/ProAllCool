@@ -21,7 +21,7 @@ import { Excursion } from '../types/Excursion'
 import { useAuth } from '../hooks/Hooks'
 
 
-export const ExcursionItem = ({ showModal, excursion, setToEdit,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc }: Props) => {
+export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc, setShowPossibleClientModal }: Props) => {
    const excursionCTX = useContext(ExcursionsContext)
    const auth = useAuth()
 
@@ -54,6 +54,11 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit,setIdExc, setThu
       'hover:border-green-300',
       'hover:bg-green-600'
    ].join(' ')
+
+   // Show Form to Lead
+   const showFormPossibleClient = () => {
+      setShowPossibleClientModal!(true)
+   }
 
    // Show the Thumbnail
    const showThumbnail = (thumbail: string) => {
@@ -137,7 +142,7 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit,setIdExc, setThu
                      
                      <button
                         className={`font-bold border border-green-600 text-green-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 w-1/2 ${btnInfoHover}`}
-                        onClick={ () => showModal!(excursion.openModal) }>
+                        onClick={ () => showFormPossibleClient() }>
                         + Infos</button>
                   </span>
 

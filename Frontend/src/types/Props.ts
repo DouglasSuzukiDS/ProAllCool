@@ -41,6 +41,7 @@ export type Props = {
    // Modals
    showModal?: (modal: string) => void
    closeModal?: () => void
+   formPossibleClient?: (nameExcursion: string) => void
 
    showBahamasModal?: boolean
    setShowBahamasModal?: Dispatch<SetStateAction<boolean>>
@@ -59,4 +60,7 @@ export type Props = {
 
    showDefaultModal?: boolean
    setShowDefaultModal?: Dispatch<SetStateAction<boolean>>
+
+   showPossibleClientModal?: boolean
+   setShowPossibleClientModal?: Dispatch<SetStateAction<boolean>>
 }

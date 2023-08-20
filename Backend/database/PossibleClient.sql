@@ -4,7 +4,7 @@ CREATE TABLE possibleClient(
     emailPosClient VARCHAR(50) NOT NULL,
     telPosClient VARCHAR(50) NOT NULL,
     instaPosClient VARCHAR(50) NOT NULL,
-    contacted BOOLEAN DEFAULT false
+    contactedPosClient BOOLEAN DEFAULT false
 );
 
 SELECT * FROM possibleClient;

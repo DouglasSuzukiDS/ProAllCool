@@ -1,6 +1,5 @@
 import { Envelope } from "../assets/icons/Envelope"
 import { Instagram } from "../assets/icons/Instagram"
-import { InstagramGradient } from "../assets/icons/InstagramGradient"
 import { WhatsApp } from "../assets/icons/WhatsApp"
 import { XMark } from "../assets/icons/XMark"
 import { Modal } from "../types/Modal"
@@ -42,7 +41,7 @@ export const DefaultModal = ({ close }: Modal) => {
             </div>
 
          </article>
-   </section>
+      </section>
    )
 }
 

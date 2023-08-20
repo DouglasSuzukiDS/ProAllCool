@@ -9,6 +9,7 @@ import { TambabaModal } from './modals/TambabaModal'
 import { SaoThomeModal } from './modals/SaoThomeModal'
 import { PattayaModal } from './modals/PattayaModal'
 import { DefaultModal } from './modals/DefaultModal'
+import { PossibleClientModal } from './modals/PossibleClientModal'
 
 function App() {
    // Manager Modals
@@ -18,6 +19,7 @@ function App() {
    const [showSaoThomeModal, setShowSaoThomeModal] = useState(false)
    const [showPattayaModal, setShowPattayaModal] = useState(false)
    const [showDefaultModal, setShowDefaultModal] = useState(false)
+   const [showPossibleClientModal, setShowPossibleClientModal] = useState(false)
 
    const showModal = (modal: string) => {
       console.log(modal)
@@ -52,6 +54,7 @@ function App() {
       setShowSaoThomeModal!(false)
       setShowPattayaModal!(false)
       setShowDefaultModal!(false)
+      setShowPossibleClientModal!(false)
    }
 
    return (
@@ -71,6 +74,9 @@ function App() {
             {showPattayaModal && <PattayaModal close={closeModal} />}
 
             {showDefaultModal && <DefaultModal close={closeModal} />}
+
+            {showPossibleClientModal && <PossibleClientModal close={closeModal} />}
+
 
             <Header />
             <ExcursionsProvider>
@@ -94,7 +100,10 @@ function App() {
                   setShowPattayaModal={setShowPattayaModal}
 
                   showDefaultModal={showDefaultModal}
-                  setShowDefaultModal={setShowDefaultModal} />
+                  setShowDefaultModal={setShowDefaultModal} 
+                  
+                  showPossibleClientModal={showPossibleClientModal}
+                  setShowPossibleClientModal={setShowPossibleClientModal} />
             </ExcursionsProvider>
             <Footer />
          </section>

@@ -286,4 +286,103 @@ server.delete('/user/:id', (req, res) => {
 
 })
 
+// Manager Possible Client
+server.get('/clients', (req, res) => {
+   const query = `SELECT * FROM possibleClient`
+
+   db.query(query, (err, result) => {
+      if(err) {
+         console.log(err)
+         res.status(500).send({ msg: 'Errro!' })
+      } else {
+         res.status(200).send({ msg: 'Possiveis clientes encontrados.', result })
+      }
+   })
+})
+
+server.get('/client/:id', (req, res) => {
+   const { id } = req.params
+   const query = `SELECT * FROM possibleClient WHERE idPosClient = ?`
+
+   db.query(query, [id] , (err, result) => {
+      if(err) {
+         console.log(err)
+         res.status(500).send({ msg: 'Errro!' })
+      } else if(JSON.parse(JSON.stringify(result)).length > 0) {
+         res.status(200).send({ msg: 'Possível cliente encontrado.', result })
+      } else {
+         res.status(404).send({ msg: 'Errro ao tentar localizar possível cliente.' })
+      }
+   })
+})
+
+server.post('/client', (req, res) => {
+   const { namePosClient, emailPosClient, telPosClient, instaPosClient } = req.body
+
+   const query = `INSERT INTO possibleClient (namePosClient, emailPosClient, telPosClient, instaPosClient) VALUES (?, ?, ?, ?)`
+
+   db.query(query, [namePosClient, emailPosClient, telPosClient, instaPosClient], (err, result) => {
+      if(err) {
+         console.log(err)
+         res.status(400).send({ msg: 'Errro!' })
+      } else {
+         res.status(201).send({ msg: 'Dados do possível cliente salvo.' })
+      }
+   })
+})
+
+server.put('/client/:id', (req, res) => {
+   const { id } = req.params
+   const { namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient } = req.body
+
+   const checkIfPosClientExist = `SELECT * FROM  possibleClient WHERE idPosClient = ?`
+
+   const query = `UPDATE possibleClient SET namePosClient = ?, emailPosClient = ?, telPosClient = ?, instaPosClient = ?, contactedPosClient = ? WHERE idPosClient = ?`
+
+   db.query(checkIfPosClientExist, [id], (err, result) => {
+      if(err) {
+         console.log(err)
+         res.status(500).send({ msg: 'Errro!' })
+      } else if(JSON.parse(JSON.stringify(result)).length = 1) {
+         db.query(query, [namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient, id], (err, result) => {
+            if(err) {
+               console.log(err)
+               res.status(500).send({ msg: 'Errro!' })
+            } else {
+               res.status(200).send({ msg: 'Dados do possível cliente editado com sucesso.' })
+            }
+         })
+      } else {
+         res.status(404).send({ msg: `Errro ao tentar localizar possível cliente para editar pelo id ${ id }.` })
+      }
+   })
+})
+
+server.delete('/client/:id', (req, res) => {
+   const { id } = req.params
+
+   const checkIfPosClientExist = `SELECT * FROM possibleClient WHERE idPosClient = ?`
+
+   const query = `DELETE FROM possibleClient WHERE idPosClient = ?`
+
+   db.query(checkIfPosClientExist, [id], (err, result) => {
+      if(err) {
+         console.log(err)
+         res.status(500).send({ msg: 'Errro!' })
+      } else if(JSON.parse(JSON.stringify(result)).length = 1) {
+         db.query(query, [id], (err, result) => {
+            if(err) {
+               console.log(err)
+               res.status(500).send({ msg: 'Errro!' })
+            } else {
+               res.status(200).send({ msg: 'Cliente deletado com sucesso.' })
+            }
+         })
+      } else {
+         res.status(404).send({ msg: `Errro ao tentar excluir cliente pelo id ${ id }.` })
+      }
+   })
+
+})
+
 server.listen(3002, () => console.log('Running on port 3002'))
