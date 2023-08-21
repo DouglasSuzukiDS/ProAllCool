@@ -30,6 +30,14 @@ input, textarea {
   border-radius: 8px;
 }
 
+.btnCTA {
+  animation: cta infinite ease-in-out 2s;
+}
+
+.calcHeight {
+  height: 100%;
+}
+
 .customScroll::-webkit-scrollbar {
   width: 8px !important; /* width of the entire scrollbar */
   scroll-behavior: smooth !important;
@@ -105,4 +113,51 @@ input, textarea {
 }
 .test {
   overflow-y: hidden;
+}
+
+@keyframes cta1 {
+  0% {
+    scale: 1;
+  }
+  10% {
+    scale: 1.025;
+  }
+  20% {
+    scale: 1.075;
+  }
+  30% {
+    scale: 1.125;
+  }
+  40% {
+    scale: 1.18;
+  }
+  50% {
+    scale: 1.25;
+  }
+  60% {
+    scale: 1.18;
+  }
+  70% {
+    scale: 1.125;
+  }
+  80% {
+    scale: 1.075;
+  }
+  90% {
+    scale: 1.025;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes cta {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.25;
+  }
+  100% {
+    scale: 1;
+  }
 }/*# sourceMappingURL=index.css.map */

@@ -10,10 +10,12 @@ import { SaoThomeModal } from './modals/SaoThomeModal'
 import { PattayaModal } from './modals/PattayaModal'
 import { DefaultModal } from './modals/DefaultModal'
 import { PossibleClientModal } from './modals/PossibleClientModal'
+import { UfoModal } from './modals/UfoModal'
 
 function App() {
    // Manager Modals
    const [showBahamasModal, setShowBahamasModal] = useState(false)
+   const [showUfoModal, setShowUfoModal] = useState(false)
    const [showJapanModal, setShowJapanModal] = useState(false)
    const [showTambabaModal, setShowTambabaModal] = useState(false)
    const [showSaoThomeModal, setShowSaoThomeModal] = useState(false)
@@ -28,6 +30,9 @@ function App() {
       switch (modal) {
          case 'BahamasModal':
             setShowBahamasModal!(!showBahamasModal)
+            break
+         case 'UfoModal':
+            setShowUfoModal!(!showUfoModal)
             break
          case 'JapanModal':
             setShowJapanModal!(!showJapanModal)
@@ -49,6 +54,7 @@ function App() {
 
    const closeModal = () => {
       setShowBahamasModal!(false)
+      setShowUfoModal!(false)
       setShowJapanModal!(false)
       setShowTambabaModal!(false)
       setShowSaoThomeModal!(false)
@@ -57,13 +63,18 @@ function App() {
       setShowPossibleClientModal!(false)
    }
 
-   return (
+   const showFormPossibleClient = () => {
+      setShowPossibleClientModal!(true)
+   }
 
-
+   return ( 
       <main className="w-full h-screen flex justify-center border p-2">
          <section className="container container-lg flex justify-between flex-col p-4 h-full border border-yellow-600 rounded-lg relative">
+
             {/* Modals */}
             {showBahamasModal && <BahamasModal close={closeModal} />}
+
+            {showUfoModal && <UfoModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
             {showJapanModal && <JapanModal close={closeModal} />}
 
@@ -77,8 +88,8 @@ function App() {
 
             {showPossibleClientModal && <PossibleClientModal close={closeModal} />}
 
-
             <Header />
+
             <ExcursionsProvider>
                <Excursions
                   showModal={showModal}
@@ -86,6 +97,9 @@ function App() {
 
                   showBahamasModal={showBahamasModal}
                   setShowBahamasModal={setShowBahamasModal}
+
+                  showUfoModal={showUfoModal}
+                  setShowUfoModal={setShowUfoModal}
 
                   showJapanModal={showJapanModal}
                   setShowJapanModal={setShowJapanModal}
@@ -105,6 +119,7 @@ function App() {
                   showPossibleClientModal={showPossibleClientModal}
                   setShowPossibleClientModal={setShowPossibleClientModal} />
             </ExcursionsProvider>
+            
             <Footer />
          </section>
 

@@ -26,6 +26,9 @@ INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, desc
 ('Bahamas01', 'Bahamas Club', '5.000', '3.800', 'Final de semana no Hotel mais famoso de São Paulo, com restaurante próprio, culinária de elite, shows, bar com bartender’s & bargirls altamente qualidifcados. OBS: Shows particulares NÃO ESTÃO INCLUSOS.', '03/11/23', '05/11/23', true, 'BahamasModal');
 
 INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES
+('Ufo01', 'Expedição UFO 👽', '9.000', '7.780', 'Expedição UFO pelas cidades com os maiores casos ufolóficos do Mundo. Tour pela Ilha de Colares (PA) palco da Operação Prato, e Varginha (MG), palco do avistamento da criatura de Varginha.', '01/12/23', '12/12/23', true, 'UfoModal');
+
+INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES
 ('JapanTour01', 'Japan Tour ', '12.000', '10.750', 'Tour por Osaka, Tokyo e Nagoya. Festa especial no idBar (Nagoya), a casa de show mais frequentada por brasilieiros no Japão.', '05/01/24', '20/01/24', true, 'JapanModal');
 
 INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES

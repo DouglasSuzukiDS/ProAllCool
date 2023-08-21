@@ -60,46 +60,56 @@ export const PossibleClientModal = ({ close }: Modal) => {
                   Nossa equipe irá entrar com vossa excelência o mais rápido possível! 😎
                </p>
 
-               <div className="flex flex-col text-indigo-600 w-fit gap-2">
-                  <form className='flex flex-col gap-2'>
-                     <span className="flex gap-2">
+               <div className="flex flex-col text-indigo-600 w-fit">
+                  <form className='flex flex-col gap-1 font-bold'>
+                     <span className="flex justify-center items-center gap-1 py-1 border-b border-sky-600">
                         <MapLocationDot w="24" h="24" fill="#9333EA" />
+
                         <input type="text" placeholder='Excursão'
+                           className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400'
                            value={ nameExc }
                            onChange={ e => setNameExc(e.target.value) } />
                      </span>
 
-                     <span className="flex gap-2">
+                     <span className="flex justify-center items-center gap-2 py-1 border-b border-sky-600">
                         <User w="24" h="24" fill="#9333EA" />
+
                         <input type="text" placeholder='Nome'
+                           className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400'
                            value={ name }
                            onChange={ e => setName(e.target.value) } />
                      </span>
 
-                     <span className="flex gap-2">
+                     <span className="flex justify-center items-center gap-2 py-1 border-b border-sky-600">
                         <Envelope w="24" h="24" fill="#9333EA" />
+
                         <input type="text" placeholder='Email'
+                           className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400'
                            value={ email }
                            onChange={ e => setEmail(e.target.value) } />
                      </span>
 
-                     <span className="flex gap-2">
+                     <span className="flex justify-center items-center gap-2 py-1 border-b border-sky-600">
                         <WhatsApp w="24" h="24" fill="#9333EA" />
+
                         <input type="text" placeholder='WhatsApp'
+                           className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400'
                            value={ tel }
                            onChange={ e => setTel(e.target.value) } />
                      </span>
 
-                     <span className="flex gap-2">
+                     <span className="flex justify-center items-center gap-2 py-1 border-b border-sky-600">
                         <Instagram w="24" h="24" fill="#9333EA" /> 
+
                         <input type="text" placeholder='@Instagram'
+                           className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400'
                            value={ insta }
                            onChange={ e => setInsta(e.target.value) } />
                      </span>
                   </form>
 
                   <button 
-                     className={`flex justify-center text-center gap-2 font-bold border border-blue-600 text-blue-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`}
+                     className={`flex justify-center text-center mt-2 gap-2 font-bold border border-blue-600 text-blue-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 ${btnHover}`}
                      onClick={ handleNewPossibleClient }>
                      Tenho Interesse
                   </button>

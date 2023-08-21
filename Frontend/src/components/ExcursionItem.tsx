@@ -8,6 +8,8 @@ import { TrashCan } from '../assets/icons/TrashCan'
 // Import das Imagens das excursões
 import Bahamas01 from '../assets/images/BahamasClub01.png'
 
+import Ufo01 from '../assets/images/Ufo01.png'
+
 import JapanTour01 from '../assets/images/JapanTour01.png'
 
 import Tambaba01 from '../assets/images/Tambaba01.png'
@@ -65,6 +67,8 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setTh
       switch(thumbail) {
          case 'Bahamas01':
             return Bahamas01
+         case 'Ufo01':
+            return Ufo01
          case'JapanTour01':
             return JapanTour01
          case 'Tambaba01':

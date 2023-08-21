@@ -46,6 +46,9 @@ export type Props = {
    showBahamasModal?: boolean
    setShowBahamasModal?: Dispatch<SetStateAction<boolean>>
 
+   showUfoModal?: boolean
+   setShowUfoModal?: Dispatch<SetStateAction<boolean>>
+
    showJapanModal?: boolean
    setShowJapanModal?: Dispatch<SetStateAction<boolean>>
 
