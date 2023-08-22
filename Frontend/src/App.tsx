@@ -83,19 +83,19 @@ function App() {
          <section className="container container-lg flex justify-between flex-col p-4 h-full border border-yellow-600 rounded-lg relative">
 
             {/* Modals */}
-            {showBahamasModal && <BahamasModal close={closeModal} />}
+            {showBahamasModal && <BahamasModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
             {showUfoModal && <UfoModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
-            {showJapanModal && <JapanModal close={closeModal} />}
+            {showJapanModal && <JapanModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
-            {showTambabaModal && <TambabaModal close={closeModal} />}
+            {showTambabaModal && <TambabaModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
-            {showSaoThomeModal && <SaoThomeModal close={closeModal} />}
+            {showSaoThomeModal && <SaoThomeModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
-            {showPattayaModal && <PattayaModal close={closeModal} />}
+            {showPattayaModal && <PattayaModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
-            {showDefaultModal && <DefaultModal close={closeModal} />}
+            {showDefaultModal && <DefaultModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
             {showPossibleClientModal && <PossibleClientModal close={closeModal} />}
 
