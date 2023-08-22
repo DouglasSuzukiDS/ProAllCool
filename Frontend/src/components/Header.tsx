@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import { useAuth } from "../hooks/Hooks"
+import { Props } from "../types/Props"
 
-export const Header = () => {
+export const Header = ({ showAboutUsModal, setShowAboutUsModal, showContactModal, setShowContactModal, showDepositionsModal, setShowDepositionsModal }: Props) => {
    const auth = useAuth()
 
    const handleLogout = () => {
@@ -27,9 +28,17 @@ export const Header = () => {
             { auth?.auth && 
                <button onClick={ handleLogout } className={ navLinks }>Logout</button> }
             
-            <Link to='/' className={ navLinks }>Contato</Link>
-            <Link to='/' className={ navLinks }>Sobre</Link>
-            <Link to='/' className={ navLinks }>Depoimentos</Link>
+            <button 
+               className={ navLinks }
+               onClick={() => setShowContactModal!(!showContactModal)}>Contato</button>
+
+            <button 
+               className={ navLinks }
+               onClick={() => setShowAboutUsModal!(!showAboutUsModal)}>Sobre</button>
+
+            <button 
+               className={ navLinks }
+               onClick={() => setShowDepositionsModal!(!showDepositionsModal)}>Depoimentos</button>
          </nav>
       </header>
    )

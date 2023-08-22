@@ -240,7 +240,7 @@ server.put('/user/:id', (req, res) => {
       if(err) {
          console.log(err)
          res.status(404).send({ msg: 'Erro, tente novamente mais tarde.'})
-      } else if (JSON.parse(JSON.stringify(result)).length > 0) {  
+      } else if (JSON.parse(JSON.stringify(result)).length < 0) {  
          console.log(nameUser, loginUser, passwordUser)
          console.log(result)  
          res.status(400).send({ msg: 'Edição de dados não permitida.'})
@@ -252,7 +252,7 @@ server.put('/user/:id', (req, res) => {
             if(err) {
                console.log(err)
             } else {
-               res.status(201).send({ msg: 'Usuário editado com sucesso', result })
+               res.status(201).send({ msg: 'Usuário editado com sucesso.', result })
             }
          })
       }

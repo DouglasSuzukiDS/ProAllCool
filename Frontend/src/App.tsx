@@ -11,6 +11,9 @@ import { PattayaModal } from './modals/PattayaModal'
 import { DefaultModal } from './modals/DefaultModal'
 import { PossibleClientModal } from './modals/PossibleClientModal'
 import { UfoModal } from './modals/UfoModal'
+import { AboutUsModal } from './modals/AboutUsModal'
+import { ContactModal } from './modals/ContactModal'
+import { DepositionsModal } from './modals/DepositationsModal'
 
 function App() {
    // Manager Modals
@@ -22,6 +25,10 @@ function App() {
    const [showPattayaModal, setShowPattayaModal] = useState(false)
    const [showDefaultModal, setShowDefaultModal] = useState(false)
    const [showPossibleClientModal, setShowPossibleClientModal] = useState(false)
+
+   const [showAboutUsModal, setShowAboutUsModal] = useState(false)
+   const [showContactModal, setShowContactModal] = useState(false)
+   const [showDepositionsModal, setShowDepositionsModal] = useState(false)
 
    const showModal = (modal: string) => {
       console.log(modal)
@@ -61,6 +68,10 @@ function App() {
       setShowPattayaModal!(false)
       setShowDefaultModal!(false)
       setShowPossibleClientModal!(false)
+
+      setShowAboutUsModal!(false)
+      setShowContactModal!(false)
+      setShowDepositionsModal!(false)
    }
 
    const showFormPossibleClient = () => {
@@ -88,7 +99,14 @@ function App() {
 
             {showPossibleClientModal && <PossibleClientModal close={closeModal} />}
 
-            <Header />
+            {showAboutUsModal && <AboutUsModal close={closeModal} />}
+            {showContactModal && <ContactModal close={closeModal} />}
+            {showDepositionsModal && <DepositionsModal close={closeModal} />}
+
+            <Header 
+               showAboutUsModal={showAboutUsModal} setShowAboutUsModal={setShowAboutUsModal}
+               showContactModal={showContactModal} setShowContactModal={setShowContactModal}
+               showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal} />
 
             <ExcursionsProvider>
                <Excursions
