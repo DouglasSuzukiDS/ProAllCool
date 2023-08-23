@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useAuth } from "../hooks/Hooks"
 import { Props } from "../types/Props"
 
-export const Header = ({ showAboutUsModal, setShowAboutUsModal, showContactModal, setShowContactModal, showDepositionsModal, setShowDepositionsModal }: Props) => {
+export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutUsModal, setShowAboutUsModal, showContactModal, setShowContactModal, showDepositionsModal, setShowDepositionsModal }: Props) => {
    const auth = useAuth()
 
    const handleLogout = () => {
@@ -16,7 +16,7 @@ export const Header = ({ showAboutUsModal, setShowAboutUsModal, showContactModal
       'hover:opacity-75'
    ].join(' ')
 
-   return(
+   return (
       <header className="flex justify-between p-2 border-b border-blue-600">
          <span id="logo" className="text-2xl font-bold">
             <Link to='/secret'>
@@ -25,19 +25,30 @@ export const Header = ({ showAboutUsModal, setShowAboutUsModal, showContactModal
          </span>
 
          <nav className="flex items-center text-lg font-bold gap-4 border">
-            { auth?.auth && 
-               <button onClick={ handleLogout } className={ navLinks }>Logout</button> }
+            {auth?.auth &&
+               <>
+                  <button onClick={handleLogout} className={navLinks}>Logout</button>
+
+                  <button
+                     className={navLinks}
+                     onClick={() => setShowDevelopersModal!(!showDevelopersModal)}>Desenvolvedores</button>
+
+                  <button
+                     className={navLinks}
+                     onClick={() => setShowAboutUsModal!(!showAboutUsModal)}>Sobre</button>
+               </>
+            }
+
+            {/* Developers */}
             
-            <button 
-               className={ navLinks }
+            <button
+               className={navLinks}
                onClick={() => setShowContactModal!(!showContactModal)}>Contato</button>
 
-            <button 
-               className={ navLinks }
-               onClick={() => setShowAboutUsModal!(!showAboutUsModal)}>Sobre</button>
+            {/* About Us */}
 
-            <button 
-               className={ navLinks }
+            <button
+               className={navLinks}
                onClick={() => setShowDepositionsModal!(!showDepositionsModal)}>Depoimentos</button>
          </nav>
       </header>

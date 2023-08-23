@@ -67,6 +67,9 @@ export type Props = {
    showPossibleClientModal?: boolean
    setShowPossibleClientModal?: Dispatch<SetStateAction<boolean>>
 
+   showDevelopersModal?: boolean
+   setShowDevelopersModal?: Dispatch<SetStateAction<boolean>>
+
    showAboutUsModal?: boolean
    setShowAboutUsModal?: Dispatch<SetStateAction<boolean>>
 
@@ -75,6 +78,4 @@ export type Props = {
 
    showDepositionsModal?: boolean
    setShowDepositionsModal?: Dispatch<SetStateAction<boolean>>
-
-
 }

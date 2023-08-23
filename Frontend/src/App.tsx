@@ -14,6 +14,7 @@ import { UfoModal } from './modals/UfoModal'
 import { AboutUsModal } from './modals/AboutUsModal'
 import { ContactModal } from './modals/ContactModal'
 import { DepositionsModal } from './modals/DepositationsModal'
+import { DevelopersModal } from './modals/DevelopersModal'
 
 function App() {
    // Manager Modals
@@ -26,6 +27,7 @@ function App() {
    const [showDefaultModal, setShowDefaultModal] = useState(false)
    const [showPossibleClientModal, setShowPossibleClientModal] = useState(false)
 
+   const [showDevelopersModal, setShowDevelopersModal] = useState(false)
    const [showAboutUsModal, setShowAboutUsModal] = useState(false)
    const [showContactModal, setShowContactModal] = useState(false)
    const [showDepositionsModal, setShowDepositionsModal] = useState(false)
@@ -69,6 +71,7 @@ function App() {
       setShowDefaultModal!(false)
       setShowPossibleClientModal!(false)
 
+      setShowDevelopersModal!(false)
       setShowAboutUsModal!(false)
       setShowContactModal!(false)
       setShowDepositionsModal!(false)
@@ -99,11 +102,13 @@ function App() {
 
             {showPossibleClientModal && <PossibleClientModal close={closeModal} />}
 
+            {showDevelopersModal && <DevelopersModal close={closeModal} />}
             {showAboutUsModal && <AboutUsModal close={closeModal} />}
             {showContactModal && <ContactModal close={closeModal} />}
             {showDepositionsModal && <DepositionsModal close={closeModal} />}
 
             <Header 
+               showDevelopersModal={showDevelopersModal} setShowDevelopersModal={setShowDevelopersModal}
                showAboutUsModal={showAboutUsModal} setShowAboutUsModal={setShowAboutUsModal}
                showContactModal={showContactModal} setShowContactModal={setShowContactModal}
                showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal} />

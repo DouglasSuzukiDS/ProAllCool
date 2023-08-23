@@ -29,6 +29,11 @@ input, textarea {
   border-radius: 8px;
 }
 
+// Header 
+.MDSH-Logo {
+  width: 80%;
+}
+
 .btnCTA {
   animation: cta infinite ease-in-out 2s;
 }
@@ -135,6 +140,13 @@ input, textarea {
       font-size: 14px;
       margin: 8px 0;
     }
+  }
+}
+
+@media (max-width: 780px) {
+  // Developers 
+  #developersContainer {
+    flex-direction: column !important;
   }
 }
 

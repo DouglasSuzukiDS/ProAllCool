@@ -30,6 +30,10 @@ input, textarea {
   border-radius: 8px;
 }
 
+.MDSH-Logo {
+  width: 80%;
+}
+
 .btnCTA {
   animation: cta infinite ease-in-out 2s;
 }
@@ -109,6 +113,11 @@ input, textarea {
   .modal .content {
     font-size: 14px;
     margin: 8px 0;
+  }
+}
+@media (max-width: 780px) {
+  #developersContainer {
+    flex-direction: column !important;
   }
 }
 .test {
