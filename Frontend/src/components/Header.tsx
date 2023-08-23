@@ -24,7 +24,7 @@ export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutU
             </Link>
          </span>
 
-         <nav className="flex items-center text-lg font-bold gap-4 border">
+         <nav className="flex items-center text-lg font-bold gap-4">
             {auth?.auth &&
                <>
                   <button onClick={handleLogout} className={navLinks}>Logout</button>

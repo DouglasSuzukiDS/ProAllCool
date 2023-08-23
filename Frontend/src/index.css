@@ -74,6 +74,12 @@ input, textarea {
   #card #btn-group button {
     width: 100% !important;
   }
+  .nameDev {
+    font-size: 20px !important;
+  }
+  .profession {
+    font-size: 16px !important;
+  }
   footer {
     flex-direction: column;
   }
@@ -85,6 +91,7 @@ input, textarea {
   header #logo {
     display: flex;
     justify-content: center;
+    margin-bottom: 16px;
   }
   header nav {
     justify-content: center;
@@ -118,6 +125,15 @@ input, textarea {
 @media (max-width: 780px) {
   #developersContainer {
     flex-direction: column !important;
+  }
+  #developersContainer .profession {
+    font-size: 20px;
+  }
+  #developersContainer span {
+    font-size: 24px;
+  }
+  #developersContainer p, #developersContainer p span {
+    font-size: 14px;
   }
 }
 .test {

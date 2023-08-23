@@ -13,12 +13,14 @@ export const DevelopersModal = ({ close }: Modal) => {
       "flex-col", 
       "gap-2",
       "border-2",
-      "border-blue-300",
+      "border-blue-600",
+      "hover:border-blue-300",
       "transition-all",
       "duration-700",
-      "hover:border-blue-600",
-      "rounded-lg p-2",
-      "max-w-[385px]"
+      "rounded-lg",
+      "p-4",
+      "max-w-[385px]",
+      "max-h-[390px]"
    ].join(' ')
 
    return (
@@ -33,51 +35,51 @@ export const DevelopersModal = ({ close }: Modal) => {
             </div>
 
             <div id="developersContainer" className="flex items-center mt-2 text-center gap-4">
-               <section className={ borderDev }>
+               <section className={  borderDev } >
 
                   <div className="flex justify-center items-center">
-                     <img src={ WillSmith } alt="Foto do Will Smith" width='100' height='100' className="border-2 border-blue-600 transition-all duration-700 hover:border-blue-300 rounded-lg p-2" />
+                     <img src={ WillSmith } alt="Foto do Will Smith" width='100' height='100' className="border-2 border-blue-300 transition-all duration-700 hover:border-blue-600 rounded-lg p-2" />
                   </div>
 
-                  <span className="font-bold text-3xl">
+                  <span className="nameDev font-bold text-3xl">
                      Mathias Santos
                   </span>
 
-                  <p className="text-2xl">
+                  <p className="profession text-2xl font-bold">
                      Desenvolvedor Fullstack
                   </p>
 
-                  <p className="first-letter:ml-4">
+                  <p className="first-letter:ml-4 max-h-[216px] overflow-y-auto customScroll">
                      Formado em <span className="font-bold">Técnico em Informática</span> pelo Senac.
                   </p>
                </section>
 
                <section className={ borderDev }>
                   <div className="flex justify-center items-center">
-                     <Texugo w="100" h="100" className="border-2 border-blue-600 transition-all duration-700 hover:border-blue-300 rounded-lg p-2" />
+                     <Texugo w="100" h="100" className="border-2 border-blue-300 transition-all duration-700 hover:border-blue-600 rounded-lg p-2" />
                   </div>
 
-                  <span className="flex justify-center items-center gap-2 font-bold text-3xl">
+                  <span className="nameDev flex justify-center items-center gap-2 font-bold text-3xl">
                      <CircleBlue w="24" h="24" />
                      Douglas Suzuki
                      <CircleRed w="24" h="24" />
                   </span>
 
-                  <p className="text-2xl">
+                  <p className="profession text-2xl font-bold">
                      Desenvolvedor Fullstack
                   </p>
 
-                  <p className="first-letter:ml-4">
+                  <p className="first-letter:ml-4 max-h-[150px] overflow-y-auto customScroll">
                      <span className="font-bold">Técnico em Informática</span> pelo Senac, com certificações focadas no <span className="font-bold">desenvolvimento Frontend (React, Typescript, Node, TailwindCSS)</span> pela B7WEB, e <span className="font-bold">AWS Cloud Practitioner Foundational</span> pelo Senai.
                   </p>
 
-                  <span className="flex justify-center items-center gap-2">
+                  <span className="flex justify-center items-center gap-4">
                      <a href="https://github.com/DouglasSuzukiDS/" target="_blank">
-                        <GitHubBorderGradient w="24" h="24" />
+                        <GitHubBorderGradient w="32" h="32" />
                      </a>
 
                      <a href="https://www.linkedin.com/in/douglas-suzuki-775822219/" target="_blank">
-                        <LinkedinBorderGradient w="24" h="24" />
+                        <LinkedinBorderGradient w="32" h="32" />
                      </a>
                   </span>
                </section>
