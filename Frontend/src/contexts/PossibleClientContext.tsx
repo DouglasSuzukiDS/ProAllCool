@@ -35,7 +35,7 @@ export const PossibleClientProvider = ({ children }: { children: ReactNode }) =>
       await baseURL.post('/client', newPossibleClient)
          .then(res => {
             if(res.status === 201) {
-               alert('Interesse registrado. Em preve nossa equipe entra em contato com você')
+               alert('Interesse registrado. Em breve nossa equipe entra em contato com vossa excelência.')
                getAllPossibleClients()
             }
          })

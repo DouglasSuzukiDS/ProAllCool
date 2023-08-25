@@ -317,11 +317,11 @@ server.get('/client/:id', (req, res) => {
 })
 
 server.post('/client', (req, res) => {
-   const { namePosClient, emailPosClient, telPosClient, instaPosClient } = req.body
+   const { idExc, nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient } = req.body
 
-   const query = `INSERT INTO possibleClient (namePosClient, emailPosClient, telPosClient, instaPosClient) VALUES (?, ?, ?, ?)`
+   const query = `INSERT INTO possibleClient (idExc, nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient) VALUES (?, ?, ?, ?, ?, ?)`
 
-   db.query(query, [namePosClient, emailPosClient, telPosClient, instaPosClient], (err, result) => {
+   db.query(query, [idExc, nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient], (err, result) => {
       if(err) {
          console.log(err)
          res.status(400).send({ msg: 'Errro!' })
@@ -333,18 +333,18 @@ server.post('/client', (req, res) => {
 
 server.put('/client/:id', (req, res) => {
    const { id } = req.params
-   const { namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient } = req.body
+   const { nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient } = req.body
 
    const checkIfPosClientExist = `SELECT * FROM  possibleClient WHERE idPosClient = ?`
 
-   const query = `UPDATE possibleClient SET namePosClient = ?, emailPosClient = ?, telPosClient = ?, instaPosClient = ?, contactedPosClient = ? WHERE idPosClient = ?`
+   const query = `UPDATE possibleClient SET nameExc = ?, namePosClient = ?, emailPosClient = ?, telPosClient = ?, instaPosClient = ?, contactedPosClient = ? WHERE idPosClient = ?`
 
    db.query(checkIfPosClientExist, [id], (err, result) => {
       if(err) {
          console.log(err)
          res.status(500).send({ msg: 'Errro!' })
       } else if(JSON.parse(JSON.stringify(result)).length = 1) {
-         db.query(query, [namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient, id], (err, result) => {
+         db.query(query, [nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient, id], (err, result) => {
             if(err) {
                console.log(err)
                res.status(500).send({ msg: 'Errro!' })

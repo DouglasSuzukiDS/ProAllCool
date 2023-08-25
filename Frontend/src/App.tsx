@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Excursions } from "./components/Excursions"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
-import { ExcursionsProvider } from "./contexts/ExcursionsContext"
 import { BahamasModal } from './modals/BahamasModal'
 import { JapanModal } from './modals/JapanModal'
 import { TambabaModal } from './modals/TambabaModal'
@@ -112,8 +111,7 @@ function App() {
                showAboutUsModal={showAboutUsModal} setShowAboutUsModal={setShowAboutUsModal}
                showContactModal={showContactModal} setShowContactModal={setShowContactModal}
                showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal} />
-
-            <ExcursionsProvider>
+               
                <Excursions
                   showModal={showModal}
                   closeModal={closeModal}
@@ -141,7 +139,6 @@ function App() {
                   
                   showPossibleClientModal={showPossibleClientModal}
                   setShowPossibleClientModal={setShowPossibleClientModal} />
-            </ExcursionsProvider>
             
             <Footer />
          </section>

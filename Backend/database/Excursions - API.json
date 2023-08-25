@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Excursions",
-    "dateExported": "2023-08-17T22:54:15.504Z",
+    "dateExported": "2023-08-24T02:20:17.310Z",
     "version": "1.1",
     "folders": [
         {
@@ -17,6 +17,13 @@
             "containerId": "",
             "created": "2023-08-17T22:08:31.793Z",
             "sortNum": 20000
+        },
+        {
+            "_id": "14609c1f-98f6-4551-90a1-8d0992985006",
+            "name": "Client",
+            "containerId": "",
+            "created": "2023-08-20T00:10:06.497Z",
+            "sortNum": 30000
         }
     ],
     "requests": [
@@ -57,12 +64,12 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-08-13T03:05:41.367Z",
-            "modified": "2023-08-13T22:28:30.623Z",
+            "modified": "2023-08-20T22:04:51.548Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"thumbnail\": \"\", \n  \"titleExc\": \"Bahamas Club\", \n  \"prevValueExc\": \"5000\", \n  \"currentValueExc\": \"3800\",\n  \"descriptionExc\": \"Final de semana no Hotel mais famoso de São Paulo, com restaurante próprio, culinária de elite, shows, bar com bartender’s & bargirls altamente qualidifcados. <span className='font-bold text-red-600'>OBS:</span> Shows particulares <span className='font-bold'>NÃO ESTÃO INCLUSOS.</span>\", \n  \"dateExc\": \"08/12/2023\", \n  \"returnExc\": \"10/12/2023\",\n  \"openModal\": \"blaaa\"\n}",
+                "raw": "{\n  \"thumbnail\": \"\", \n  \"titleExc\": \"Bahamas Club\", \n  \"prevValueExc\": \"5000\", \n  \"currentValueExc\": \"3800\",\n  \"descriptionExc\": \"Final de semana no Hotel mais famoso de São Paulo, com restaurante próprio, culinária de elite, shows, bar com bartender’s & bargirls altamente qualidifcados. <span className='font-bold text-red-600'>OBS:</span> Shows particulares <span className='font-bold'>NÃO ESTÃO INCLUSOS.</span>\", \n  \"dateExc\": \"08/12/2023\", \n  \"returnExc\": \"10/12/2023\",\n  \"openModal\": \"Bahamas01\"\n}",
                 "form": []
             },
             "tests": []
@@ -112,25 +119,6 @@
             "modified": "2023-08-13T21:29:35.056Z",
             "headers": [],
             "params": [],
-            "tests": []
-        },
-        {
-            "_id": "c563e367-c7da-4868-95cb-a8d2bedf980e",
-            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
-            "containerId": "5573d3eb-47ef-493a-85ab-493b94885668",
-            "name": "Edit User",
-            "url": "localhost:3002/user/2",
-            "method": "PUT",
-            "sortNum": 100000,
-            "created": "2023-08-17T22:26:29.607Z",
-            "modified": "2023-08-17T22:28:21.809Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"nameUser\": \"Tonhao\",\n  \"loginUser\": \"tonhao\",\n  \"passwordUser\": \"adminsecac\"\n}",
-                "form": []
-            },
             "tests": []
         },
         {
@@ -189,12 +177,31 @@
             "method": "POST",
             "sortNum": 130000,
             "created": "2023-08-17T22:12:42.413Z",
-            "modified": "2023-08-17T22:28:37.049Z",
+            "modified": "2023-08-22T22:20:22.576Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"loginUser\": \"tonhao\",\n  \"passwordUser\": \"adminsecac\"\n}",
+                "raw": "{\n  \"loginUser\": \"tonhao\",\n  \"passwordUser\": \"tonhao123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c563e367-c7da-4868-95cb-a8d2bedf980e",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "5573d3eb-47ef-493a-85ab-493b94885668",
+            "name": "Edit User",
+            "url": "localhost:3002/user/2",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2023-08-17T22:26:29.607Z",
+            "modified": "2023-08-22T22:16:54.973Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nameUser\": \"Tonhao\",\n  \"loginUser\": \"tonhao\",\n  \"passwordUser\": \"tonhao123\"\n}",
                 "form": []
             },
             "tests": []
@@ -209,6 +216,86 @@
             "sortNum": 130000,
             "created": "2023-08-17T22:35:28.500Z",
             "modified": "2023-08-17T22:46:15.756Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "abf6bf09-d7b6-404d-b909-5ce904593aec",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "14609c1f-98f6-4551-90a1-8d0992985006",
+            "name": "Clients",
+            "url": "localhost:3002/clients",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-08-20T00:10:16.052Z",
+            "modified": "2023-08-20T00:10:32.206Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7bc8238c-22a3-4a7d-99b6-310bc95360c4",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "14609c1f-98f6-4551-90a1-8d0992985006",
+            "name": "Client By Id",
+            "url": "localhost:3002/client/2",
+            "method": "GET",
+            "sortNum": 145000,
+            "created": "2023-08-20T00:21:09.034Z",
+            "modified": "2023-08-20T00:24:52.533Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a5253115-1e18-4e6e-a897-15fc71e7933d",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "14609c1f-98f6-4551-90a1-8d0992985006",
+            "name": "New Client",
+            "url": "localhost:3002/client",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-08-20T00:11:42.644Z",
+            "modified": "2023-08-24T02:11:55.904Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nameExc\": \"Bahamas\",\n  \"namePosClient\": \"Tonhao MotoMoto\",\n  \"emailPosClient\": \"motomoto@email.com\", \n  \"telPosClient\": \"11111111111\", \n  \"instaPosClient\": \"motomoto\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "70c6a480-7dbe-4089-827c-221fca1a2b2a",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "14609c1f-98f6-4551-90a1-8d0992985006",
+            "name": "Edit Client",
+            "url": "localhost:3002/client/2",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2023-08-20T00:32:34.784Z",
+            "modified": "2023-08-24T02:08:36.452Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nameExc\": \"Expedição UFO\",\n  \"namePosClient\": \"Tonhao MotoMoto\",\n  \"emailPosClient\": \"motomoto@email.com\", \n  \"telPosClient\": \"11111111111\", \n  \"instaPosClient\": \"motomoto\",\n  \"contactedPosClient\": true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "93ab2564-2cbc-47c5-9d92-a715847132a3",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "14609c1f-98f6-4551-90a1-8d0992985006",
+            "name": "Delete Client",
+            "url": "localhost:3002/client/3",
+            "method": "DELETE",
+            "sortNum": 170000,
+            "created": "2023-08-20T00:42:04.252Z",
+            "modified": "2023-08-24T02:14:54.774Z",
             "headers": [],
             "params": [],
             "tests": []
