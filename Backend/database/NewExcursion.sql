@@ -3,16 +3,16 @@ CREATE DATABASE excursions;
 USE excursions;
 
 CREATE TABLE excursions (
-   id INTEGER PRIMARY KEY AUTO_INCREMENT,
-   thumbnail VARCHAR(50) DEFAULT 'DefaultImage',
-   titleExc VARCHAR(255) NOT NULL,
-   prevValueExc VARCHAR(20) NOT NULL,
-   currentValueExc VARCHAR(20) NOT NULL,
-   descriptionExc MEDIUMTEXT NOT NULL,
-   dateExc VARCHAR(20) NOT NULL,
-   returnExc VARCHAR(20) NOT NULL,
-   activeExc BOOLEAN DEFAULT false,
-   openModal VARCHAR(100) DEFAULT 'DefaultModal'
+  idExc INT PRIMARY KEY AUTO_INCREMENT,
+  thumbnail VARCHAR(50) DEFAULT "DefaultImage",
+  titleExc VARCHAR(255) NOT NULL,
+  prevValueExc VARCHAR(20) NOT NULL,
+  currentValueExc VARCHAR(20) NOT NULL,
+  descriptionExc MEDIUMTEXT NOT NULL,
+  dateExc VARCHAR(20) NOT NULL,
+  returnExc VARCHAR(20) NOT NULL,
+  activeExc BOOLEAN DEFAULT false,
+  openModal VARCHAR(100) NOT NULL
 );
 
 SELECT * FROM excursions;
@@ -22,8 +22,8 @@ DROP TABLE excursions;
 
 UPDATE excursions SET thumbnail = 'DefaultImage' WHERE id = 6;
 
-/*INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES
-('', 'Outra escursão', '', '', 'Outra excursão. Entrar em contato com o cliente.', '03/11/23', '05/11/23', false, '');*/
+INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES
+('', 'Outra escursão', '', '', 'Outra excursão. Entrar em contato com o cliente.', '03/11/23', '05/11/23', false, '');
 
 INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES
 ('Bahamas01', 'Bahamas Club', '5.000', '3.800', 'Final de semana no Hotel mais famoso de São Paulo, com restaurante próprio, culinária de elite, shows, bar com bartender’s & bargirls altamente qualidifcados. OBS: Shows particulares NÃO ESTÃO INCLUSOS.', '03/11/23', '05/11/23', true, 'BahamasModal');

@@ -42,7 +42,7 @@ export const DevelopersModal = ({ close }: Modal) => {
                   </div>
 
                   <span className="nameDev font-bold text-3xl">
-                     Mathias Santos
+                     ?
                   </span>
 
                   <p className="profession text-2xl font-bold">

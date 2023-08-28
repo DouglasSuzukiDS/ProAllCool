@@ -22,6 +22,7 @@ type EditPossibleClient = {
    type: 'edit'
    payload: {
       idPosClient: string
+      idExc: number
       nameExc: string
       namePosClient: string
       emailPosClient: string
@@ -57,6 +58,7 @@ export const PossibleClientReducer = (possibleClients: PossibleClient[], action:
       case 'edit': 
          return [...possibleClients, {
             idPosClient: action.payload.idPosClient,
+            idExc: action.payload.idExc,
             nameExc: action.payload.nameExc,
             namePosClient: action.payload.namePosClient,
             emailPosClient: action.payload.emailPosClient,

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Excursions",
-    "dateExported": "2023-08-24T02:20:17.310Z",
+    "dateExported": "2023-08-28T02:39:21.384Z",
     "version": "1.1",
     "folders": [
         {
@@ -257,12 +257,12 @@
             "method": "POST",
             "sortNum": 150000,
             "created": "2023-08-20T00:11:42.644Z",
-            "modified": "2023-08-24T02:11:55.904Z",
+            "modified": "2023-08-28T02:31:58.774Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nameExc\": \"Bahamas\",\n  \"namePosClient\": \"Tonhao MotoMoto\",\n  \"emailPosClient\": \"motomoto@email.com\", \n  \"telPosClient\": \"11111111111\", \n  \"instaPosClient\": \"motomoto\"\n}",
+                "raw": "{\n  \"idExc\": \"07\",\n  \"nameExc\": \"Bahamas\",\n  \"namePosClient\": \"Tonhao MotoMoto\",\n  \"emailPosClient\": \"motomoto@email.com\", \n  \"telPosClient\": \"11111111111\", \n  \"instaPosClient\": \"motomoto\"\n}",
                 "form": []
             },
             "tests": []
@@ -272,16 +272,16 @@
             "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
             "containerId": "14609c1f-98f6-4551-90a1-8d0992985006",
             "name": "Edit Client",
-            "url": "localhost:3002/client/2",
+            "url": "localhost:3002/client/5",
             "method": "PUT",
             "sortNum": 160000,
             "created": "2023-08-20T00:32:34.784Z",
-            "modified": "2023-08-24T02:08:36.452Z",
+            "modified": "2023-08-28T02:38:50.066Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nameExc\": \"Expedição UFO\",\n  \"namePosClient\": \"Tonhao MotoMoto\",\n  \"emailPosClient\": \"motomoto@email.com\", \n  \"telPosClient\": \"11111111111\", \n  \"instaPosClient\": \"motomoto\",\n  \"contactedPosClient\": true\n}",
+                "raw": "{\n  \"idExc\": \"5\",\n  \"nameExc\": \"Expedição UFO\",\n  \"namePosClient\": \"Tonhao MotoMoto\",\n  \"emailPosClient\": \"motomoto@email.com\", \n  \"telPosClient\": \"11111111111\", \n  \"instaPosClient\": \"motomoto\",\n  \"contactedPosClient\": true\n}",
                 "form": []
             },
             "tests": []

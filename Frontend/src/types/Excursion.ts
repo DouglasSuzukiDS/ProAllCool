@@ -1,6 +1,6 @@
 export type Excursion = {
-   id?: number
    thumbnail: string
+   idExc?: number
    titleExc: string
    prevValueExc: string
    currentValueExc: string

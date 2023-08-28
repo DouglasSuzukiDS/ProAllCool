@@ -8,7 +8,7 @@ type GetExcursionsAction = {
 type AddExcursionAction = {
    type: 'add'
    payload: {
-      id?: number
+      idExc?: number
       thumbnail: string
       titleExc: string
       prevValueExc: string
@@ -23,7 +23,7 @@ type AddExcursionAction = {
 type EditExcursionAction = {
    type: 'edit'
    payload: {
-      id: number
+      idExc: number
       thumbnail: string
       titleExc: string
       prevValueExc: string
@@ -49,7 +49,7 @@ export const ExcursionReducer = (excursions: Excursion[], action: ExcursionsActi
          return action.payload
       case 'add':
          return [ ...excursions, {
-            id: excursions.length + 1,
+            idExc: excursions.length + 1,
             thumbnailExc: action.payload.thumbnail,
             titleExc: action.payload.titleExc,
             prevValueExc: action.payload.prevValueExc,
@@ -62,7 +62,7 @@ export const ExcursionReducer = (excursions: Excursion[], action: ExcursionsActi
       case 'edit':
          return [
             ...excursions, {
-               id: action.payload.id,
+               idExc: action.payload.idExc,
                thumbnail: action.payload.thumbnail,
                titleExc: action.payload.titleExc,
                prevValueExc: action.payload.prevValueExc,
@@ -73,7 +73,7 @@ export const ExcursionReducer = (excursions: Excursion[], action: ExcursionsActi
             }
          ]
       case 'delete': 
-         return excursions.filter(excursion => excursion.id !== action.payload.idExc)
+         return excursions.filter(excursion => excursion.idExc !== action.payload.idExc)
       default:
          return excursions
    }

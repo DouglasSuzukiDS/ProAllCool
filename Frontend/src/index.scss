@@ -22,16 +22,16 @@ input, textarea {
 
 // Possible Client Modal
 select {
-  appearance: none; /* Remove a aparência nativa */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: url(./assets/images/Texugo.png) no-repeat right center; /* Adicione sua própria imagem de seta */;
-  padding-right: 25px; /* Dê espaço para a seta personalizada */
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  // Remove a aparência nativa do elemento
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+
+  // Custom Icon para o select
+  background: url(./assets/icons/ArrowDown.svg) no-repeat right center; 
+  padding-right: 25px;
 
   outline: none;
-  background: transparent !important;
   cursor: pointer;
 
   &:focus {
@@ -39,7 +39,9 @@ select {
   }
 
   option {
-
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
     font-weight: bold;
   }
 }

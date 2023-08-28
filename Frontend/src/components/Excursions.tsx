@@ -76,8 +76,8 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
                }
                
                {
-                  excursionsCTX?.excursions.filter(excursion => excursion.id !== 1).map(excursion =>
-                     <ExcursionItem key={ excursion.id } 
+                  excursionsCTX?.excursions.filter(excursion => excursion.idExc !== 1).map(excursion =>
+                     <ExcursionItem key={ excursion.idExc } 
                         excursion={ excursion }
                         
                         showModal={ showModal }

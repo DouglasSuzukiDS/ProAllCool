@@ -65,7 +65,7 @@ server.put('/excursion/:id', (req, res) => {
    const { id } = req.params
    const { thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, openModal } = req.body
 
-   const checkIfExcursionExist = `SELECT * FROM excursions WHERE id = ${ id }`
+   const checkIfExcursionExist = `SELECT * FROM excursions WHERE idExc = ${ id }`
 
    db.query(checkIfExcursionExist, (err, result) => {
       if(err) {
@@ -94,7 +94,7 @@ server.delete('/excursion/:id', (req, res) => {
    const { id } = req.params
 
    const checkIfExcursionExist = `SELECT * FROM excursions WHERE id = ?`
-   const query = `DELETE FROM excursions WHERE id = ${ id }`
+   const query = `DELETE FROM excursions WHERE idExc = ${ id }`
 
    db.query(checkIfExcursionExist, [id], (err, result) => {
       if(err) {
@@ -333,21 +333,22 @@ server.post('/client', (req, res) => {
 
 server.put('/client/:id', (req, res) => {
    const { id } = req.params
-   const { nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient } = req.body
+   const { idExc, nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient } = req.body
 
    const checkIfPosClientExist = `SELECT * FROM  possibleClient WHERE idPosClient = ?`
 
-   const query = `UPDATE possibleClient SET nameExc = ?, namePosClient = ?, emailPosClient = ?, telPosClient = ?, instaPosClient = ?, contactedPosClient = ? WHERE idPosClient = ?`
+   const query = `UPDATE possibleClient SET idExc = ?, nameExc = ?, namePosClient = ?, emailPosClient = ?, telPosClient = ?, instaPosClient = ?, contactedPosClient = ? WHERE idPosClient = ?`
 
    db.query(checkIfPosClientExist, [id], (err, result) => {
       if(err) {
          console.log(err)
          res.status(500).send({ msg: 'Errro!' })
-      } else if(JSON.parse(JSON.stringify(result)).length = 1) {
-         db.query(query, [nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient, id], (err, result) => {
+      } else if(JSON.parse(JSON.stringify(result)).length > 0) {
+         console.log(result)
+         db.query(query, [idExc, nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient, contactedPosClient, id], (err, result) => {
             if(err) {
                console.log(err)
-               res.status(500).send({ msg: 'Errro!' })
+               res.status(500).send({ msg: `Errro! Não foi posspivel localizar a excursã ode id ${ idExc }` })
             } else {
                res.status(200).send({ msg: 'Dados do possível cliente editado com sucesso.' })
             }
