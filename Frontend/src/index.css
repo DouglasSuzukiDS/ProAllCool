@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,6 +20,25 @@ main {
 
 input, textarea {
   outline: none;
+}
+
+select {
+  appearance: none; /* Remove a aparência nativa */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(./assets/images/Texugo.png) no-repeat right center; /* Adicione sua própria imagem de seta */
+  padding-right: 25px; /* Dê espaço para a seta personalizada */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  background: transparent !important;
+  cursor: pointer;
+}
+select:focus {
+  background-color: #A5B4FC !important;
+}
+select option {
+  font-weight: bold;
 }
 
 .modal {

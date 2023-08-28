@@ -14,5 +14,5 @@ SELECT * FROM possibleClient WHERE idPosClient = 2;
 INSERT INTO possibleClient (nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient) VALUES ('Bahamas Club', 'Tonhao', 'tonaho@email.com', '11111111111', 'tonhao');
 
 DELETE FROM possibleClient;
-ALTER TABLE possibleClient AUTO_INCREMENT = 3;
+ALTER TABLE possibleClient AUTO_INCREMENT = 1;
 DELETE FROM possibleClient WHERE idPosClient = 1;

@@ -10,7 +10,7 @@ import { usePossibleClient } from '../hooks/Hooks'
 import { ExcursionsContext } from '../contexts/ExcursionsContext'
 
 export const PossibleClientModal = ({ close }: Modal) => {
-   const [idExc, setIdExc] = useState(0)
+   const [idExc, setIdExc] = useState(1)
    const [nameExc, setNameExc] = useState('Outra excursão')
    const [name, setName] = useState('')
    const [email, setEmail] = useState('')
@@ -26,14 +26,14 @@ export const PossibleClientModal = ({ close }: Modal) => {
    const excursionsCTX = useContext(ExcursionsContext)
 
    const handleNewPossibleClient = () => {
-      alert(`
+      /*alert(`
          ID Excursion: ${ idExc }
          Name Excursion: ${ nameExc }
          Client: ${ name }
          Email: ${ email }
          Tel: ${ tel }
          Insta ${ insta }
-      `)
+      `)*/
 
       if(nameExc !== '' && name !== '' && email !== '' && tel !== '' && insta !== '') {
          possibleClientCTX?.addPossibleClient({
@@ -45,11 +45,11 @@ export const PossibleClientModal = ({ close }: Modal) => {
             instaPosClient: insta
          })
 
-         setNameExc('')
+         /*setNameExc('')
          setName('')
          setEmail('')
          setTel('')
-         setInsta('')
+         setInsta('')*/
       } else {
          alert('Por obséquio, preencha todos os campos corretamente.')
       }
@@ -61,7 +61,7 @@ export const PossibleClientModal = ({ close }: Modal) => {
       if(checkIfExcExist !== undefined) {
          setIdExc(checkIfExcExist) 
       } else {
-         setIdExc(0) 
+         setIdExc(1) 
       }
    }
 
@@ -104,11 +104,11 @@ export const PossibleClientModal = ({ close }: Modal) => {
                         <MapLocationDot w="24" h="24" fill="#9333EA" />
 
                         <select
-                           className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400 outline-none border-0'
+                           className='text-center text-sky-600 placeholder:text-indigo-400'
                            value={ nameExc }
                            onChange={ e => setNameExc(e.target.value) }>
                               <option value="Outra excursão">Outra Excursão</option>
-                              { excursionsCTX?.excursions.map(exc => (
+                              { excursionsCTX?.excursions.filter(excursion => excursion.id !== 1).map(exc => (
                                  <option value={ exc.titleExc }> { exc.titleExc } </option>
                               )) }
                         </select>

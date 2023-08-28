@@ -76,7 +76,7 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
                }
                
                {
-                  excursionsCTX?.excursions.map(excursion => (
+                  excursionsCTX?.excursions.filter(excursion => excursion.id !== 1).map(excursion =>
                      <ExcursionItem key={ excursion.id } 
                         excursion={ excursion }
                         
@@ -96,7 +96,7 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
                         
                         toEdit={ toEdit } setToEdit={ setToEdit } 
                      />
-                  ))
+                  )
                }
             </div>
          </section>

@@ -20,6 +20,30 @@ input, textarea {
   outline: none;
 }
 
+// Possible Client Modal
+select {
+  appearance: none; /* Remove a aparência nativa */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(./assets/images/Texugo.png) no-repeat right center; /* Adicione sua própria imagem de seta */;
+  padding-right: 25px; /* Dê espaço para a seta personalizada */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+  outline: none;
+  background: transparent !important;
+  cursor: pointer;
+
+  &:focus {
+    background-color: #A5B4FC !important;
+  }
+
+  option {
+
+    font-weight: bold;
+  }
+}
+
 .modal {
   width: calc(100% - 30px);
   height: calc(100% - 30px);
@@ -43,7 +67,6 @@ input, textarea {
   height: calc(100%);
 }
 
-
 // #excursions::-webkit-scrollbar, 
 .customScroll::-webkit-scrollbar {
   width: 8px !important;               /* width of the entire scrollbar */
@@ -63,6 +86,8 @@ input, textarea {
   border-radius: 8px !important;       /* roundness of the scroll thumb */
   cursor: pointer;
 }
+
+
 
 @media(max-width: 350px) {
   #h1-newExcursion {
