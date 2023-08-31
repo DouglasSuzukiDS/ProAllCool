@@ -78,4 +78,7 @@ export type Props = {
 
    showDepositionsModal?: boolean
    setShowDepositionsModal?: Dispatch<SetStateAction<boolean>>
+
+   showPossibleClientsTableModal?: boolean
+   setShowPossibleClientsTableModal?: Dispatch<SetStateAction<boolean>>
 }

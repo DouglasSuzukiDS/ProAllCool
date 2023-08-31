@@ -32,7 +32,7 @@ INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, desc
 ('Ufo01', 'Expedição UFO 👽', '9.000', '7.780', 'Expedição UFO pelas cidades com os maiores casos ufolóficos do Mundo. Tour pela Ilha de Colares (PA) palco da Operação Prato, e Varginha (MG), palco do avistamento da criatura de Varginha.', '01/12/23', '12/12/23', true, 'UfoModal');
 
 INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES
-('JapanTour01', 'Japan Tour ', '12.000', '10.750', 'Tour por Osaka, Tokyo e Nagoya. Festa especial no idBar (Nagoya), a casa de show mais frequentada por brasilieiros no Japão.', '05/01/24', '20/01/24', true, 'JapanModal');
+('JapanTour01', 'Japan Tour', '12.000', '10.750', 'Tour por Osaka, Tokyo e Nagoya. Festa especial no idBar (Nagoya), a casa de show mais frequentada por brasilieiros no Japão.', '05/01/24', '20/01/24', true, 'JapanModal');
 
 INSERT INTO excursions (thumbnail, titleExc, prevValueExc, currentValueExc, descriptionExc, dateExc, returnExc, activeExc, openModal) VALUES
 ('Tambaba01', 'Praia Tambaba', '5.350', '4.620', 'Praia naturalista localizada na Paraíba, replata de paisagens naturais.', '02/11/23', '12/11/23', true, 'TambabaModal');

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useAuth } from "../hooks/Hooks"
 import { Props } from "../types/Props"
 
-export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutUsModal, setShowAboutUsModal, showContactModal, setShowContactModal, showDepositionsModal, setShowDepositionsModal }: Props) => {
+export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutUsModal, setShowAboutUsModal, showContactModal, setShowContactModal, showDepositionsModal, setShowDepositionsModal, showPossibleClientsTableModal, setShowPossibleClientsTableModal }: Props) => {
    const auth = useAuth()
 
    const handleLogout = () => {
@@ -28,6 +28,10 @@ export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutU
             {auth?.auth &&
                <>
                   <button onClick={handleLogout} className={navLinks}>Logout</button>
+                  
+                  <button
+                     className={navLinks}
+                     onClick={() => setShowPossibleClientsTableModal!(!showPossibleClientsTableModal)}>Possíveis Clientes</button>
 
                   <button
                      className={navLinks}

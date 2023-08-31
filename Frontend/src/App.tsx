@@ -14,6 +14,7 @@ import { AboutUsModal } from './modals/AboutUsModal'
 import { ContactModal } from './modals/ContactModal'
 import { DepositionsModal } from './modals/DepositationsModal'
 import { DevelopersModal } from './modals/DevelopersModal'
+import { PossibleClientsTableModal } from './modals/PossibleClientsTableModal'
 
 function App() {
    // Manager Modals
@@ -30,6 +31,7 @@ function App() {
    const [showAboutUsModal, setShowAboutUsModal] = useState(false)
    const [showContactModal, setShowContactModal] = useState(false)
    const [showDepositionsModal, setShowDepositionsModal] = useState(false)
+   const [showPossibleClientsTableModal, setShowPossibleClientsTableModal] = useState(false)
 
    const showModal = (modal: string) => {
       console.log(modal)
@@ -74,6 +76,7 @@ function App() {
       setShowAboutUsModal!(false)
       setShowContactModal!(false)
       setShowDepositionsModal!(false)
+      setShowPossibleClientsTableModal!(false)
    }
 
    const showFormPossibleClient = () => {
@@ -105,12 +108,15 @@ function App() {
             {showAboutUsModal && <AboutUsModal close={closeModal} />}
             {showContactModal && <ContactModal close={closeModal} />}
             {showDepositionsModal && <DepositionsModal close={closeModal} />}
+            { showPossibleClientsTableModal && <PossibleClientsTableModal close={ closeModal } /> }
 
             <Header 
                showDevelopersModal={showDevelopersModal} setShowDevelopersModal={setShowDevelopersModal}
                showAboutUsModal={showAboutUsModal} setShowAboutUsModal={setShowAboutUsModal}
                showContactModal={showContactModal} setShowContactModal={setShowContactModal}
-               showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal} />
+               showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal} 
+               showPossibleClientsTableModal={ showPossibleClientsTableModal } 
+               setShowPossibleClientsTableModal={ setShowPossibleClientsTableModal } />
                
                <Excursions
                   showModal={showModal}

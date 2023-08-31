@@ -89,6 +89,44 @@ select {
   cursor: pointer;
 }
 
+// Possible Clients
+table, th, tr, td {
+  text-align: center;
+  //border: 1px solid red;
+
+  th, td {
+    border-right: 2px solid #3B82F6;
+    padding: 8px;
+    
+  }
+
+  tbody tr {
+    transition: all ease .7s;
+
+    &:hover {
+      opacity: .6;
+    }
+
+    &:nth-child(odd) { // Ímpat
+      background-color: #4F46E5; // Ingigo-600
+    }
+
+    &:nth-child(even) { // Prar
+      background-color: #9333EA; // Purple-600
+    }
+
+  }
+
+  td {
+    color: #C1C7E0;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+  
+}
+
 
 
 @media(max-width: 350px) {
@@ -128,7 +166,8 @@ select {
   }
 }
 
-@media (max-width: 500px) {
+// @media (max-width: 500px) {
+@media (max-width: 1225px) {
   header {
     flex-direction: column;
 

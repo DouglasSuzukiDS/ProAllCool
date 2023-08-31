@@ -19,7 +19,7 @@ export const ContactModal = ({ close }: Modal) => {
 
                 <div className="flex flex-col items-center">
                     <p className="content text-center text-blue-600 text-xl my-4 max-h-[220px] overflow-y-auto customScroll">
-                        Quaisquer dúvidas que tenha sobre como funciona nossas viagens, nos contate! Um de nossos atendentes irá sanar todas vossas dúvidas o mais rápido possível atrasvez de um atendimento especial com um extremo carinho.
+                        Quaisquer dúvidas que tenha sobre como funciona nossas viagens, nos contate! Um de nossos atendentes irá sanar todas vossas dúvidas o mais rápido possível atravez de um atendimento especial com um extremo carinho.
                     </p>
 
                     <div className="flex flex-col text-indigo-600 w-fit gap-2">
@@ -27,13 +27,13 @@ export const ContactModal = ({ close }: Modal) => {
                         <span className="flex gap-2 font-bold hover:scale-125 transition-all duration-700">
                             <WhatsApp w="24" h="24" fill="#9333EA" /> (11) 96666-6666
                         </span>
-
+                        
                         <span className="flex gap-2 font-bold hover:scale-125 transition-all duration-700">
-                            <Envelope w="24" h="24" fill="#9333EA" /> infos@proallcool.com
+                            <Instagram w="24" h="24" fill="#9333EA" /> @ProAllCool
                         </span>
 
                         <span className="flex gap-2 font-bold hover:scale-125 transition-all duration-700">
-                            <Instagram w="24" h="24" fill="#9333EA" /> @ProAllCool
+                            <Envelope w="24" h="24" fill="#9333EA" /> infos@proallcool.com
                         </span>
                     </div>
 

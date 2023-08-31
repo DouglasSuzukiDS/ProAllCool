@@ -14,7 +14,7 @@ ALTER TABLE possibleClient ADD FOREIGN KEY (idExc) REFERENCES excursions (idExc)
 SELECT * FROM possibleClient;
 SELECT * FROM possibleClient WHERE idPosClient = 2;
 
-INSERT INTO possibleClient (nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient) VALUES ('Bahamas Club', 'Tonhao', 'tonaho@email.com', '11111111111', 'tonhao');
+INSERT INTO possibleClient (idExc, nameExc, namePosClient, emailPosClient, telPosClient, instaPosClient) VALUES (2, 'Bahamas Club', 'Tonhao', 'tonaho@email.com', '11111111111', 'tonhao');
 
 DELETE FROM possibleClient;
 ALTER TABLE possibleClient AUTO_INCREMENT = 1;

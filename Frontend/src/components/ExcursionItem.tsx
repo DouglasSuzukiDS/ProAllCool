@@ -88,7 +88,7 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setTh
       if(setToEdit && setIdExc && setThumbnailExc && setTitleExc && setPrevValueExc && setCurrentValueExc && setDescriptionExc && setDateExc && setReturnExc && setOpenModalExc) {
          setToEdit(true)
 
-         setIdExc(excursion.id!)
+         setIdExc(excursion.idExc!)
          setThumbnailExc(excursion.thumbnail)
          setTitleExc(excursion.titleExc)
          setPrevValueExc(excursion.prevValueExc)
@@ -157,7 +157,7 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setTh
 
                         <TrashCan w='24' h='24' fill='#DC2626'
                            className='hover:opacity-60 hover:duration-700'
-                           onClick={() => handleDeleteExcursion(excursion.id as number)} />
+                           onClick={() => handleDeleteExcursion(excursion.idExc!)} />
                      </span>
                   }
                </div>

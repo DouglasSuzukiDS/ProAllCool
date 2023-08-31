@@ -8,7 +8,7 @@ type GetAllPossibleClient = {
 type AddPossibleClient = {
    type: 'add'
    payload: {
-      idPosClient: string
+      idPosClient: number
       nameExc: string
       namePosClient: string
       emailPosClient: string
@@ -21,7 +21,7 @@ type AddPossibleClient = {
 type EditPossibleClient = {
    type: 'edit'
    payload: {
-      idPosClient: string
+      idPosClient: number
       idExc: number
       nameExc: string
       namePosClient: string
@@ -32,6 +32,14 @@ type EditPossibleClient = {
    }
 }
 
+type TogglePossibleClient = {
+   type: 'togglePossibleClient'
+   payload: {
+      idPosClient: number
+      contactedPosClient: boolean
+   }
+}
+
 type DeletePossibleClient = {
    type: 'delete'
    payload: { 
@@ -39,7 +47,7 @@ type DeletePossibleClient = {
    }
 }
 
-export type PossibleClientAction = GetAllPossibleClient | AddPossibleClient | EditPossibleClient | DeletePossibleClient
+export type PossibleClientAction = GetAllPossibleClient | AddPossibleClient | EditPossibleClient | TogglePossibleClient | DeletePossibleClient
 
 export const PossibleClientReducer = (possibleClients: PossibleClient[], action: PossibleClientAction) => {
    switch(action.type) {
@@ -66,6 +74,13 @@ export const PossibleClientReducer = (possibleClients: PossibleClient[], action:
             instaPosClient: action.payload.instaPosClient,
             contactedPosClient: action.payload.contactedPosClient
          }]
+      case 'togglePossibleClient': 
+         console.log(action.payload.contactedPosClient)
+         return possibleClients.map(possibleClient => possibleClient.idPosClient === action.payload.idPosClient ? 
+            { ...possibleClient, 
+               contactedPosClient: action.payload.contactedPosClient
+            }: possibleClient
+         )
       case "delete":
          return possibleClients.filter(possibleClient => possibleClient.idPosClient !== action.payload.idPosClient)
       default:

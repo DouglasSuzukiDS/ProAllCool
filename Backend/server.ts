@@ -359,6 +359,36 @@ server.put('/client/:id', (req, res) => {
    })
 })
 
+server.put('/client/contacted/:id', (req, res) => {
+   const { id } = req.params
+   const { contactedPosClient } = req.body
+   console.log(contactedPosClient)
+
+   const checkIfPosClientExist = `SELECT * FROM  possibleClient WHERE idPosClient = ?`
+
+   const query = `UPDATE possibleClient SET contactedPosClient = ? WHERE idPosClient = ?`
+
+   db.query(checkIfPosClientExist, [id], (err, result) => {
+      if(err) {
+         console.log(err)
+         res.status(500).send({ msg: 'Errro!' })
+      } else if(JSON.parse(JSON.stringify(result)).length > 0) {
+
+         console.log(result)
+         db.query(query, [ contactedPosClient, id ], (err, result) => {
+            if(err) {
+               console.log(err)
+               res.status(500).send({ msg: `Errro! Não foi posspivel localizar o possível cliente de id ${ id }` })
+            } else {
+               res.status(200).send({ msg: 'Sinalização se o possível cliente foi contatado foi editado com sucesso.' })
+            }
+         })
+      } else {
+         res.status(404).send({ msg: `Errro ao tentar localizar possível cliente para editar pelo id ${ id }.` })
+      }
+   })
+})
+
 server.delete('/client/:id', (req, res) => {
    const { id } = req.params
 

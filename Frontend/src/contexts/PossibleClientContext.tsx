@@ -4,11 +4,12 @@ import { PossibleClient } from "../types/PossibleClient";
 import { baseURL } from "../api/Api";
 
 export type PossibleClientType = {
-   possibleClient: PossibleClientType[]
+   possibleClient: PossibleClient[]
    dispatch: Dispatch<PossibleClientAction>
    getAllPossibleClients: () => void
    addPossibleClient: (newPossibleClient: PossibleClient) => void
    editPossibleClient: (id: number, possibleClientData: PossibleClient) => void
+   togglePossibleClient: (idPosClient: number, contactedPosClient: boolean) => void
    deletePossibleClient: (id: number) => void
 }
 
@@ -53,6 +54,21 @@ export const PossibleClientProvider = ({ children }: { children: ReactNode }) =>
          .catch(err => console.log(err))
    }
 
+   const togglePossibleClient = async(idPosClient: number, contactedPosClient: boolean) => {
+      // alert(`No Context ID: ${ idPosClient } - Contacted: ${ contactedPosClient }`)
+      // await baseURL.put(`/client/contacted/${ idPosClient }`, contactedPosClient ? 1 : 0)
+      await baseURL.put(`/client/contacted/${ idPosClient }`, {
+         idPosClient, contactedPosClient
+      }) 
+         .then(res => {
+            if(res.status === 200) {
+               console.log(res.data.msg)
+               getAllPossibleClients()
+            }
+         })
+         .catch(err => console.log(err))
+   }
+
    const deletePossibleClient = async(id: number) => {
       await baseURL.delete(`/client/${id}`)
          .then(res => {
@@ -65,7 +81,7 @@ export const PossibleClientProvider = ({ children }: { children: ReactNode }) =>
    }
 
    return(
-      <PossibleClientContext.Provider value={{ possibleClient, dispatch, getAllPossibleClients, addPossibleClient, editPossibleClient, deletePossibleClient }}>
+      <PossibleClientContext.Provider value={{ possibleClient, dispatch, getAllPossibleClients, addPossibleClient, editPossibleClient, togglePossibleClient, deletePossibleClient }}>
          { children }
       </PossibleClientContext.Provider>
    )
