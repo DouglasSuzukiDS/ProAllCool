@@ -111,7 +111,7 @@ export const FormExcursion = ({
    }
 
    return (
-      <div className={`border-2 border-blue-600 rounded-lg p-4 flex flex-col font-semibold w-[350px] transition-all duration-1000 ${ formHover }`}>
+      <div id="formExcursion" className={`border-2 border-blue-600 rounded-lg p-4 flex flex-col font-semibold w-[350px] transition-all duration-1000 ${ formHover }`}>
          <h1 id="h1-newExcursion" 
             className={`flex justify-center text-2xl font-bold ${ toEdit ? 'text-cyan-600 ' : 'text-sky-600 font-bold' } `}>
             { toEdit ? 'Edição de Excursão' : 'Registro de Excursão' } 
@@ -131,7 +131,7 @@ export const FormExcursion = ({
             value={ titleExc }
             onChange={ e => setTitleExc!(e.target.value) } />
          
-         <div className='flex justify-between gap-2'>
+         <div id="valuesGroup" className='flex justify-between gap-2'>
             <input 
                type="text" 
                placeholder="Valor anterior"
@@ -147,7 +147,7 @@ export const FormExcursion = ({
                onChange={ e => setCurrentValueExc!(e.target.value) } />
          </div>
 
-         <div className='flex justify-between gap-2'>
+         <div id="dateGroup" className='flex justify-between gap-2'>
             <input 
                type="text" 
                placeholder="Ida"

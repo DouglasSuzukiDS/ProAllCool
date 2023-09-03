@@ -142,33 +142,35 @@ function App() {
                   showPossibleClientsTableModal={showPossibleClientsTableModal}
                   setShowPossibleClientsTableModal={setShowPossibleClientsTableModal} />
 
-               <Excursions
-                  showModal={showModal}
-                  closeModal={closeModal}
+               <div className='flex flex-1'>
+                  <Excursions
+                     showModal={showModal}
+                     closeModal={closeModal}
 
-                  showBahamasModal={showBahamasModal}
-                  setShowBahamasModal={setShowBahamasModal}
+                     showBahamasModal={showBahamasModal}
+                     setShowBahamasModal={setShowBahamasModal}
 
-                  showUfoModal={showUfoModal}
-                  setShowUfoModal={setShowUfoModal}
+                     showUfoModal={showUfoModal}
+                     setShowUfoModal={setShowUfoModal}
 
-                  showJapanModal={showJapanModal}
-                  setShowJapanModal={setShowJapanModal}
+                     showJapanModal={showJapanModal}
+                     setShowJapanModal={setShowJapanModal}
 
-                  showTambabaModal={showTambabaModal}
-                  setShowTambabaModal={setShowTambabaModal}
+                     showTambabaModal={showTambabaModal}
+                     setShowTambabaModal={setShowTambabaModal}
 
-                  showSaoThomeModal={showSaoThomeModal}
-                  setShowSaoThomeModal={setShowSaoThomeModal}
+                     showSaoThomeModal={showSaoThomeModal}
+                     setShowSaoThomeModal={setShowSaoThomeModal}
 
-                  showPattayaModal={showPattayaModal}
-                  setShowPattayaModal={setShowPattayaModal}
+                     showPattayaModal={showPattayaModal}
+                     setShowPattayaModal={setShowPattayaModal}
 
-                  showDefaultModal={showDefaultModal}
-                  setShowDefaultModal={setShowDefaultModal}
+                     showDefaultModal={showDefaultModal}
+                     setShowDefaultModal={setShowDefaultModal}
 
-                  showPossibleClientModal={showPossibleClientModal}
-                  setShowPossibleClientModal={setShowPossibleClientModal} />
+                     showPossibleClientModal={showPossibleClientModal}
+                     setShowPossibleClientModal={setShowPossibleClientModal} />
+               </div>
 
                <Footer />
             </section>

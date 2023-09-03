@@ -18,14 +18,14 @@ export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutU
    ].join(' ')
 
    return (
-      <header className="flex justify-between p-2 border-b border-blue-600">
+      <header className="flex justify-between border-b h-auto border-blue-600">
          <span id="logo" className="text-2xl font-bold">
             <Link to='/secret'>
-               <img src={ Logo } alt="Logo Pro AllCool" className="w-[150px] h-[80px]" />
+               <img src={ Logo } alt="Logo Pro AllCool" className="logo-header" />
             </Link>
          </span>
 
-         <nav className="flex items-center text-lg font-bold gap-4">
+         <nav className="flex items-center text-lg font-bold gap-x-4">
             {auth?.auth &&
                <>
                   <button onClick={handleLogout} className={navLinks}>Logout</button>

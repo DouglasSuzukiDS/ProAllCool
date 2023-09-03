@@ -49,8 +49,9 @@ select option {
   border-radius: 8px;
 }
 
-.MDSH-Logo {
-  width: 80%;
+.logo-header {
+  width: 150px;
+  height: 80px;
 }
 
 .btnCTA {
@@ -104,31 +105,10 @@ table td:last-child, th td:last-child, tr td:last-child, td td:last-child {
   border-right: none;
 }
 
-@media (max-width: 350px) {
-  #h1-newExcursion {
-    font-size: 20px;
-  }
-  #dates {
-    flex-direction: column;
-  }
-  #card #btn-group {
-    border: 1px solid red;
-    gap: 8px !important;
-    flex-direction: column;
-  }
-  #card #btn-group button {
-    width: 100% !important;
-  }
-  .nameDev {
-    font-size: 20px !important;
-  }
-  .profession {
-    font-size: 16px !important;
-  }
-  footer {
-    flex-direction: column;
-  }
+.logo-footer {
+  width: 150px;
 }
+
 @media (max-width: 1225px) {
   header {
     flex-direction: column;
@@ -179,6 +159,55 @@ table td:last-child, th td:last-child, tr td:last-child, td td:last-child {
   }
   #developersContainer p, #developersContainer p span {
     font-size: 14px;
+  }
+}
+@media (max-width: 450px) {
+  .logo-header, .logo-footer {
+    width: 100px;
+    height: 50px;
+  }
+  footer {
+    gap: 0 !important;
+  }
+  footer div {
+    flex-direction: column;
+    gap: 0px !important;
+    margin-top: -8px;
+  }
+}
+@media (max-width: 350px) {
+  #formExcursion {
+    width: 100%;
+  }
+  #valuesGroup, #dateGroup {
+    flex-direction: column;
+  }
+  #valuesGroup input, #dateGroup input {
+    width: 100%;
+  }
+  #h1-newExcursion {
+    font-size: 20px;
+    text-align: center;
+  }
+  #values, #dates {
+    flex-direction: column;
+    gap: 8px;
+  }
+  #card #btn-group {
+    gap: 8px !important;
+    flex-direction: column;
+  }
+  #card #btn-group button {
+    width: 100% !important;
+  }
+  .nameDev {
+    font-size: 20px !important;
+  }
+  .profession {
+    font-size: 16px !important;
+  }
+  footer {
+    flex-direction: column;
   }
 }
 .test {

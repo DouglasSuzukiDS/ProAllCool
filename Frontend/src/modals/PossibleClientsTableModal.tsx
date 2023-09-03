@@ -36,7 +36,7 @@ export const PossibleClientsTableModal = ({ close }: Modal) => {
             <div className="tableArea my-4 p-2 flex justify-center max-h-[470px] border-2 rounded-lg border-blue-600">
                
                <div className='overflow-y-auto customScroll pr-2'>
-                  <table className='border-2 border-blue-600 rounded-lg overflow-y-auto'>
+                  <table className='border-2 border-blue-600 rounded-lg overflow-y-auto h-[200px]'>
                      <thead className='border-b border-blue-600 bg-blue-300 text-blue-600'>
                         <tr>
                            <th> Contatado </th>

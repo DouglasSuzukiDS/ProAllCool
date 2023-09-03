@@ -44,9 +44,9 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
    return(
       <>
          <section id="excursions" 
-            className="flex flex-wrap justify-center my-4 gap-4 border-4 border-cyan-600 rounded-lg w-full flex-1 overflow-y-auto customScroll z-10 relative" >
+            className="flex flex-wrap justify-center my-4 p-2 gap-4 border-4 border-cyan-600 rounded-lg w-full flex-1 z-10 relative" >
 
-            <div id="excursionsArea" className={`absolute z-0 flex flex-wrap justify-center gap-4 rounded-lg w-full h-auto border`}>
+            <div id="excursionsArea" className={`z-0 flex flex-wrap h-[350px] p-2 justify-center gap-4 rounded-lg border overflow-y-auto customScroll`}>
 
                { auth?.auth &&
                   <FormExcursion toEdit={toEdit} setToEdit={ setToEdit }
