@@ -55,7 +55,7 @@ select {
   background-color: #0006;
   z-index: 20;
   position: absolute;
-  border-radius: 8px;
+  // border-radius: 8px;
 }
 
 // Header 
@@ -144,7 +144,7 @@ table, th, tr, td {
     #logo {
       display: flex;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 0px;
     }
 
     nav {
@@ -190,6 +190,12 @@ table, th, tr, td {
 }
 
 @media (max-width: 780px) {
+  // ExcurionsItem 
+  #card {
+    width: 100%;
+    max-width: 450px;
+  }
+
   // Developers 
   #developersContainer {
     flex-direction: column !important;
@@ -215,6 +221,12 @@ table, th, tr, td {
     height: 50px;
   }
 
+  // FormExcursion
+  #formExcursion {
+    width: 100% !important;
+  }
+
+  // Footer
   footer {
     gap: 0 !important;
     //flex-direction: column;
@@ -277,7 +289,6 @@ table, th, tr, td {
     flex-direction: column;
   }
 }
-
 
 .test {
   overflow-y: hidden;

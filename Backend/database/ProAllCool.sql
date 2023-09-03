@@ -1,10 +1,3 @@
-CREATE TABLE users (
-  idUser INT PRIMARY KEY AUTO_INCREMENT,
-  nameUser VARCHAR(50) NOT NULL,
-  loginUser VARCHAR(50) NOT NULL,
-  passwordUser VARCHAR(255) NOT NULL
-);
-
 CREATE TABLE excursions (
   idExc INT PRIMARY KEY AUTO_INCREMENT,
   thumbnail VARCHAR(50) DEFAULT "DefaultImage",
@@ -16,6 +9,13 @@ CREATE TABLE excursions (
   returnExc VARCHAR(20) NOT NULL,
   activeExc BOOLEAN DEFAULT false,
   openModal VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE users (
+  idUser INT PRIMARY KEY AUTO_INCREMENT,
+  nameUser VARCHAR(50) NOT NULL,
+  loginUser VARCHAR(50) NOT NULL,
+  passwordUser VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE possibleClient (

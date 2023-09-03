@@ -33,24 +33,22 @@ export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutU
                   <button
                      className={navLinks}
                      onClick={() => setShowPossibleClientsTableModal!(!showPossibleClientsTableModal)}>Possíveis Clientes</button>
-
-                  <button
-                     className={navLinks}
-                     onClick={() => setShowDevelopersModal!(!showDevelopersModal)}>Desenvolvedores</button>
-
-                  <button
-                     className={navLinks}
-                     onClick={() => setShowAboutUsModal!(!showAboutUsModal)}>Sobre</button>
                </>
             }
 
             {/* Developers */}
+            <button
+               className={navLinks}
+               onClick={() => setShowDevelopersModal!(!showDevelopersModal)}>Desenvolvedores</button>
             
             <button
                className={navLinks}
                onClick={() => setShowContactModal!(!showContactModal)}>Contato</button>
 
             {/* About Us */}
+            <button
+               className={navLinks}
+               onClick={() => setShowAboutUsModal!(!showAboutUsModal)}>Sobre</button>
 
             <button
                className={navLinks}

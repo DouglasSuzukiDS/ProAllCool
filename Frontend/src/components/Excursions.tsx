@@ -44,9 +44,9 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
    return(
       <>
          <section id="excursions" 
-            className="flex flex-wrap justify-center my-4 p-2 gap-4 border-4 border-cyan-600 rounded-lg w-full flex-1 z-10 relative" >
+            className="flex flex-wrap justify-center gap-4 border-4 border-cyan-600 w-full h-full rounded-lg z-10 relative overflow-y-auto customScroll" >
 
-            <div id="excursionsArea" className={`z-0 flex flex-wrap h-[350px] p-2 justify-center gap-4 rounded-lg border overflow-y-auto customScroll`}>
+            <div id="excursionsArea" className={`z-0 flex flex-wrap p-2 justify-center gap-4 rounded-lg h-[50px]overflow-y-auto customScroll`}>
 
                { auth?.auth &&
                   <FormExcursion toEdit={toEdit} setToEdit={ setToEdit }
@@ -75,8 +75,31 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
                   </p>
                }
                
-               {
+               {  auth?.auth ? 
+                  // Lista as todas as excursões
                   excursionsCTX?.excursions.filter(excursion => excursion.idExc !== 1).map(excursion =>
+                     <ExcursionItem key={ excursion.idExc } 
+                        excursion={ excursion }
+                        
+                        showModal={ showModal }
+
+                        setShowPossibleClientModal={ setShowPossibleClientModal }
+
+                        idExc={ idExc } setIdExc={ setIdExc }
+                        thumbnailExc={ thumbnailExc } setThumbnailExc={ setThumbnailExc }
+                        titleExc={ titleExc } setTitleExc={ setTitleExc }
+                        prevValueExc={ prevValueExc } setPrevValueExc={ setPrevValueExc }
+                        currentValueExc={ currentValueExc } setCurrentValueExc={ setCurrentValueExc }
+                        descriptionExc={ descriptionExc } setDescriptionExc={ setDescriptionExc }
+                        dateExc={ dateExc } setDateExc = { setDateExc }
+                        returnExc={ returnExc } setReturnExc={ setReturnExc }
+                        openModalExc={ openModalExc } setOpenModalExc={ setOpenModalExc }
+                        
+                        toEdit={ toEdit } setToEdit={ setToEdit } 
+                     />
+                  ) :
+                  // Lista apenas as excursões ativas
+                  excursionsCTX?.excursions.filter(excursion => excursion.idExc !== 1 && excursion.activeExc).map(excursion =>
                      <ExcursionItem key={ excursion.idExc } 
                         excursion={ excursion }
                         

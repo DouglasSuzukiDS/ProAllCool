@@ -133,7 +133,8 @@ function App() {
             {showContactModal && <ContactModal close={closeModal} />}
             {showDepositionsModal && <DepositionsModal close={closeModal} />}
             { showPossibleClientsTableModal && <PossibleClientsTableModal close={ closeModal } /> } */}
-
+            
+            <div className='h-auto'>
                <Header
                   showDevelopersModal={showDevelopersModal} setShowDevelopersModal={setShowDevelopersModal}
                   showAboutUsModal={showAboutUsModal} setShowAboutUsModal={setShowAboutUsModal}
@@ -141,8 +142,9 @@ function App() {
                   showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal}
                   showPossibleClientsTableModal={showPossibleClientsTableModal}
                   setShowPossibleClientsTableModal={setShowPossibleClientsTableModal} />
+            </div>
 
-               <div className='flex flex-1'>
+               <div className='h-full py-4 overflow-y-auto customScroll'>
                   <Excursions
                      showModal={showModal}
                      closeModal={closeModal}
@@ -172,7 +174,9 @@ function App() {
                      setShowPossibleClientModal={setShowPossibleClientModal} />
                </div>
 
-               <Footer />
+               <div  className='h-auto'>
+                  <Footer />
+               </div>
             </section>
 
          </main>

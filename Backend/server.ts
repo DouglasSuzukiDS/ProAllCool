@@ -90,6 +90,33 @@ server.put('/excursion/:id', (req, res) => {
 
 })
 
+server.put('/excursion/active/:idExc', (req, res) => {
+   const { idExc } = req.params
+   const { activeExc } = req.body
+
+   const checkIfExcExist = `SELECT * FROM excursions WHERE idExc = ?`
+   const query = `UPDATE excursions SET activeExc = ? WHERE idExc = ?`
+
+   db.query(checkIfExcExist, [idExc] , (err, result) => {
+      if(err) {
+         res.status(500).send({  msg: `Errro!` })
+      } else if(JSON.parse(JSON.stringify(result)).length > 0) {
+         console.log(result)
+         
+         db.query(query, [ activeExc, idExc ], (err, result) => {
+            if(err) {
+               console.log(err)
+               res.status(500).send({ msg: `Errro! Não foi posspivel localizar a excursão de id ${ idExc }` })
+            } else {
+               res.status(200).send({ msg: `Status da Excursão foi atualizada com sucesso!` })
+            }
+         })
+      } else {
+         res.status(404).send({ msg: `Errro ao tentar localizar excursão para editar pelo id ${ idExc }.` })
+      }
+   })
+})
+
 server.delete('/excursion/:id', (req, res) => {
    const { id } = req.params
 

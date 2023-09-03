@@ -46,7 +46,6 @@ select option {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 20;
   position: absolute;
-  border-radius: 8px;
 }
 
 .logo-header {
@@ -116,7 +115,7 @@ table td:last-child, th td:last-child, tr td:last-child, td td:last-child {
   header #logo {
     display: flex;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
   }
   header nav {
     justify-content: center;
@@ -148,6 +147,10 @@ table td:last-child, th td:last-child, tr td:last-child, td td:last-child {
   }
 }
 @media (max-width: 780px) {
+  #card {
+    width: 100%;
+    max-width: 450px;
+  }
   #developersContainer {
     flex-direction: column !important;
   }
@@ -165,6 +168,9 @@ table td:last-child, th td:last-child, tr td:last-child, td td:last-child {
   .logo-header, .logo-footer {
     width: 100px;
     height: 50px;
+  }
+  #formExcursion {
+    width: 100% !important;
   }
   footer {
     gap: 0 !important;

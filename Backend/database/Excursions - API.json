@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Excursions",
-    "dateExported": "2023-08-28T02:39:21.384Z",
+    "dateExported": "2023-09-03T19:54:38.513Z",
     "version": "1.1",
     "folders": [
         {
@@ -94,6 +94,25 @@
             "tests": []
         },
         {
+            "_id": "797d2308-dbab-405f-b96d-d2b12cac4e6e",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "b32aafa8-f6e8-4230-9663-945e06d6dc25",
+            "name": "Edit Active Excursion",
+            "url": "localhost:3002/excursion/active/2",
+            "method": "PUT",
+            "sortNum": 35000,
+            "created": "2023-09-03T19:42:13.736Z",
+            "modified": "2023-09-03T19:43:50.580Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"activeExc\": false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
             "_id": "3edbb5e3-f5bf-457c-9d03-0538edee0b2d",
             "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
             "containerId": "b32aafa8-f6e8-4230-9663-945e06d6dc25",
@@ -158,12 +177,12 @@
             "method": "POST",
             "sortNum": 125000,
             "created": "2023-08-17T22:10:14.534Z",
-            "modified": "2023-08-17T22:46:05.169Z",
+            "modified": "2023-08-28T02:47:47.237Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nameUser\": \"Tonhao\",\n  \"loginUser\": \"tonhao2\",\n  \"passwordUser\": \"adminsecac\"\n}",
+                "raw": "{\n  \"nameUser\": \"Nick\",\n  \"loginUser\": \"nick\",\n  \"passwordUser\": \"123\"\n}",
                 "form": []
             },
             "tests": []
@@ -192,16 +211,16 @@
             "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
             "containerId": "5573d3eb-47ef-493a-85ab-493b94885668",
             "name": "Edit User",
-            "url": "localhost:3002/user/2",
+            "url": "localhost:3002/user/1",
             "method": "PUT",
             "sortNum": 130000,
             "created": "2023-08-17T22:26:29.607Z",
-            "modified": "2023-08-22T22:16:54.973Z",
+            "modified": "2023-08-28T02:47:20.745Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nameUser\": \"Tonhao\",\n  \"loginUser\": \"tonhao\",\n  \"passwordUser\": \"tonhao123\"\n}",
+                "raw": "{\n  \"nameUser\": \"Admin\",\n  \"loginUser\": \"admin\",\n  \"passwordUser\": \"admin\"\n}",
                 "form": []
             },
             "tests": []
@@ -282,6 +301,25 @@
             "body": {
                 "type": "json",
                 "raw": "{\n  \"idExc\": \"5\",\n  \"nameExc\": \"Expedição UFO\",\n  \"namePosClient\": \"Tonhao MotoMoto\",\n  \"emailPosClient\": \"motomoto@email.com\", \n  \"telPosClient\": \"11111111111\", \n  \"instaPosClient\": \"motomoto\",\n  \"contactedPosClient\": true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8ac618b4-3992-420e-9f80-a14cc57529bb",
+            "colId": "7dd4a25b-887b-427d-a4ab-e4ec300f7caa",
+            "containerId": "14609c1f-98f6-4551-90a1-8d0992985006",
+            "name": "Edit Contacted Client ",
+            "url": "localhost:3002/client/contacted/1",
+            "method": "PUT",
+            "sortNum": 165000,
+            "created": "2023-08-29T22:37:37.064Z",
+            "modified": "2023-08-30T00:20:48.201Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"contactedPosClient\": false\n}",
                 "form": []
             },
             "tests": []

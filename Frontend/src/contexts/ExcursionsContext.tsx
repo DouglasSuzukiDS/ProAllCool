@@ -14,6 +14,7 @@ type ExcursionContextType = {
    getExcursions: () => void
    addExcursion: (newExcursion: Excursion) => void
    editExcursion: (id: number, excursion: Excursion) => void
+   toggleActiveExcursion: (idExc: number, activeExc: boolean) => void
    deleteExcursion: (idExcursion: number) => void
 }
 
@@ -60,6 +61,19 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
          .catch(err => console.log(err))
    }
 
+   const toggleActiveExcursion = async(idExc:number, activeExc: boolean) => {
+      await baseURL.put(`excursion/active/${idExc}`, { 
+         idExc, activeExc
+      })
+         .then(res => {
+            if(res.status === 200) {
+               console.log(res.data.msg)
+               getExcursions()
+            }
+         })
+         .then(err => console.log(err))
+   }
+
    const deleteExcursion = async(idExcursion: number) => {
       await baseURL.delete(`/excursion/${idExcursion}`)
          .then(res => {
@@ -73,7 +87,7 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
    }
 
    return(
-      <ExcursionsContext.Provider value={{ excursions, dispatch, getExcursions, addExcursion, editExcursion, deleteExcursion }}>
+      <ExcursionsContext.Provider value={{ excursions, dispatch, getExcursions, addExcursion, editExcursion, toggleActiveExcursion, deleteExcursion }}>
          { children }
       </ExcursionsContext.Provider>
    )

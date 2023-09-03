@@ -8,4 +8,5 @@ export type Excursion = {
    dateExc: string
    returnExc: string 
    openModal: string
+   activeExc?: boolean
 }

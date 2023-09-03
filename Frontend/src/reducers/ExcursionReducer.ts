@@ -34,6 +34,14 @@ type EditExcursionAction = {
    }
 }
 
+type ToogleExcursionAction = {
+   type: 'toggleActiveExcursion'
+   payload: {
+      idExc: number
+      activeExc: boolean
+   }
+}
+
 type DeleteExcursionAction = {
    type: 'delete'
    payload: {
@@ -41,7 +49,7 @@ type DeleteExcursionAction = {
    }
 }
 
-export type ExcursionsAction = GetExcursionsAction | AddExcursionAction | EditExcursionAction | DeleteExcursionAction
+export type ExcursionsAction = GetExcursionsAction | AddExcursionAction | EditExcursionAction | ToogleExcursionAction | DeleteExcursionAction
 
 export const ExcursionReducer = (excursions: Excursion[], action: ExcursionsAction) => {
    switch(action.type) {

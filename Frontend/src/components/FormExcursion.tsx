@@ -111,9 +111,9 @@ export const FormExcursion = ({
    }
 
    return (
-      <div id="formExcursion" className={`border-2 border-blue-600 rounded-lg p-4 flex flex-col font-semibold w-[350px] transition-all duration-1000 ${ formHover }`}>
+      <div id="formExcursion" className={`border-2 border-blue-600 rounded-lg p-4 flex flex-col font-semibold max-w-[350px] transition-all duration-1000 ${ formHover }`}>
          <h1 id="h1-newExcursion" 
-            className={`flex justify-center text-2xl font-bold ${ toEdit ? 'text-cyan-600 ' : 'text-sky-600 font-bold' } `}>
+            className={`flex justify-center text-2xl font-bold flex-wrap break-words ${ toEdit ? 'text-cyan-600 ' : 'text-sky-600 font-bold' } `}>
             { toEdit ? 'Edição de Excursão' : 'Registro de Excursão' } 
          </h1>
 

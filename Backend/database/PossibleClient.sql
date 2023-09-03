@@ -5,7 +5,7 @@ CREATE TABLE possibleClient (
   namePosClient VARCHAR(50) NOT NULL,
   emailPosClient VARCHAR(50) NOT NULL,
   telPosClient VARCHAR(50) NOT NULL,
-  instaPosClient VARCHAR(50) NOT NULL,
+  instaPosClient VARCHAR(50),
   contactedPosClient BOOLEAN DEFAULT false
 );
 

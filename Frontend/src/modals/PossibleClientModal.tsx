@@ -35,7 +35,7 @@ export const PossibleClientModal = ({ close }: Modal) => {
          Insta ${ insta }
       `)*/
 
-      if(nameExc !== '' && name !== '' && email !== '' && tel !== '' && insta !== '') {
+      if(nameExc !== '' && name !== '' && email !== '' && tel !== '') {
          possibleClientCTX?.addPossibleClient({
             idExc,
             nameExc,
@@ -51,7 +51,7 @@ export const PossibleClientModal = ({ close }: Modal) => {
          setTel('')
          setInsta('')
       } else {
-         alert('Por obséquio, preencha todos os campos corretamente.')
+         alert('O campo de nome e/ou email e/ou telefone(whatsApp) precisam estarem preenchidos. Por obséquio, preencha os  campos necessários com seus dados para que possamos contata-lo o mais rápido possível.')
       }
    }
 
