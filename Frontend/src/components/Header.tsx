@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useAuth } from "../hooks/Hooks"
 import { Props } from "../types/Props"
+import Logo from '../assets/icons/Logo.svg'
 
 export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutUsModal, setShowAboutUsModal, showContactModal, setShowContactModal, showDepositionsModal, setShowDepositionsModal, showPossibleClientsTableModal, setShowPossibleClientsTableModal }: Props) => {
    const auth = useAuth()
@@ -20,7 +21,7 @@ export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutU
       <header className="flex justify-between p-2 border-b border-blue-600">
          <span id="logo" className="text-2xl font-bold">
             <Link to='/secret'>
-               ProAllCool
+               <img src={ Logo } alt="Logo Pro AllCool" className="w-[150px] h-[80px]" />
             </Link>
          </span>
 

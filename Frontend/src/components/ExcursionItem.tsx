@@ -115,7 +115,7 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setTh
                   alt={excursion.titleExc}
                   className='rounded-lg w-1/2 h-auto' />
 
-               <div className='p-1 flex flex-col justify-center items-center border border-red-600 customScroll gap-2'>
+               <div className='p-1 flex flex-col justify-center items-center bordercustomScroll gap-2'>
 
                   <h3 className='text-base font-bold text-center text-blue-600'>{excursion.titleExc}</h3>
 
@@ -134,11 +134,11 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setTh
                      </p>
                   </span>
 
-                  <p className='text-center border flex-1 text-sm text-light overflow-y-auto customScroll'>
+                  <p className='text-center flex-1 text-sm text-light overflow-y-auto customScroll'>
                      {excursion.descriptionExc}
                   </p>
 
-                  <span id='btn-group' className='flex justify-between border w-full gap-2'>
+                  <span id='btn-group' className='flex justify-between w-full gap-2'>
                      <button
                         className={`font-bold border border-sky-600 text-sky-600 rounded-md py-2 px-4 outline-none transition-all duration-1000 w-1/2 ${btnKnowHover}`}
                         onClick={ () => showModal!(excursion.openModal) }>

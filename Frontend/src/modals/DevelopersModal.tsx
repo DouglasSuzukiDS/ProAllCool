@@ -27,7 +27,7 @@ export const DevelopersModal = ({ close }: Modal) => {
       <section className="modal flex justify-center items-center text-indigo-600">
          <article className="border-4 border-blue-300 bg-indigo-300 rounded-md p-4 max-h-[500px] overflow-y-auto customScroll">
             <div className="flex justify-between items-center gap-2">
-               <h1 className="title text-center text-sky-600 text-bold underline text-4xl w-full hover:scale-110 transition-all duration-700">
+               <h1 className="flex justify-center text-sky-600 text-bold underline text-3xl w-full hover:scale-110 transition-all duration-700">
                   Desevolvedores:
                </h1>
 
@@ -50,7 +50,7 @@ export const DevelopersModal = ({ close }: Modal) => {
                   </p>
 
                   <p className="first-letter:ml-4 max-h-[216px] overflow-y-auto customScroll">
-                     Formado em <span className="font-bold">Técnico em Informática</span> pelo Senac.
+                  Formado em <span className="font-bold">Técnico em Informática</span> pelo Senac, com certificações em <span className="font-bold">Assistente de Suporte e Manutenção de Computadores</span>, <span className="font-bold">Assistente de Operação de Redes de Computadores</span> e <span className="font-bold">Desenvolvimento de Aplicativos </span>, sendo eles para WEB <span className="font-bold">(HTML, Javascript, CSS, React)</span> e  Desktop <span className="font-bold">(C#)</span>.
                   </p>
                </section>
 

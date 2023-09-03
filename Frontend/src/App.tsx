@@ -83,12 +83,36 @@ function App() {
       setShowPossibleClientModal!(true)
    }
 
-   return ( 
-      <main className="w-full h-screen flex justify-center border p-2">
-         <section className="container container-lg flex justify-between flex-col p-4 h-full border border-yellow-600 rounded-lg relative">
+   return (
+      <>
+         {/* Modals */}
+         {showBahamasModal && <BahamasModal close={closeModal} showFormPossibleClient={showFormPossibleClient} />}
 
-            {/* Modals */}
-            {showBahamasModal && <BahamasModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
+         {showUfoModal && <UfoModal close={closeModal} showFormPossibleClient={showFormPossibleClient} />}
+
+         {showJapanModal && <JapanModal close={closeModal} showFormPossibleClient={showFormPossibleClient} />}
+
+         {showTambabaModal && <TambabaModal close={closeModal} showFormPossibleClient={showFormPossibleClient} />}
+
+         {showSaoThomeModal && <SaoThomeModal close={closeModal} showFormPossibleClient={showFormPossibleClient} />}
+
+         {showPattayaModal && <PattayaModal close={closeModal} showFormPossibleClient={showFormPossibleClient} />}
+
+         {showDefaultModal && <DefaultModal close={closeModal} showFormPossibleClient={showFormPossibleClient} />}
+
+         {showPossibleClientModal && <PossibleClientModal close={closeModal} />}
+
+         {showDevelopersModal && <DevelopersModal close={closeModal} />}
+         {showAboutUsModal && <AboutUsModal close={closeModal} />}
+         {showContactModal && <ContactModal close={closeModal} />}
+         {showDepositionsModal && <DepositionsModal close={closeModal} />}
+         {showPossibleClientsTableModal && <PossibleClientsTableModal close={closeModal} />}
+         
+         <main className="w-full h-screen flex justify-center p-2">
+            <section className="container container-lg flex justify-between flex-col p-4 h-full border border-yellow-600 rounded-lg relative">
+
+               {/* Modals */}
+               {/* {showBahamasModal && <BahamasModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
             {showUfoModal && <UfoModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
 
@@ -108,16 +132,16 @@ function App() {
             {showAboutUsModal && <AboutUsModal close={closeModal} />}
             {showContactModal && <ContactModal close={closeModal} />}
             {showDepositionsModal && <DepositionsModal close={closeModal} />}
-            { showPossibleClientsTableModal && <PossibleClientsTableModal close={ closeModal } /> }
+            { showPossibleClientsTableModal && <PossibleClientsTableModal close={ closeModal } /> } */}
 
-            <Header 
-               showDevelopersModal={showDevelopersModal} setShowDevelopersModal={setShowDevelopersModal}
-               showAboutUsModal={showAboutUsModal} setShowAboutUsModal={setShowAboutUsModal}
-               showContactModal={showContactModal} setShowContactModal={setShowContactModal}
-               showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal} 
-               showPossibleClientsTableModal={ showPossibleClientsTableModal } 
-               setShowPossibleClientsTableModal={ setShowPossibleClientsTableModal } />
-               
+               <Header
+                  showDevelopersModal={showDevelopersModal} setShowDevelopersModal={setShowDevelopersModal}
+                  showAboutUsModal={showAboutUsModal} setShowAboutUsModal={setShowAboutUsModal}
+                  showContactModal={showContactModal} setShowContactModal={setShowContactModal}
+                  showDepositionsModal={showDepositionsModal} setShowDepositionsModal={setShowDepositionsModal}
+                  showPossibleClientsTableModal={showPossibleClientsTableModal}
+                  setShowPossibleClientsTableModal={setShowPossibleClientsTableModal} />
+
                <Excursions
                   showModal={showModal}
                   closeModal={closeModal}
@@ -141,15 +165,16 @@ function App() {
                   setShowPattayaModal={setShowPattayaModal}
 
                   showDefaultModal={showDefaultModal}
-                  setShowDefaultModal={setShowDefaultModal} 
-                  
+                  setShowDefaultModal={setShowDefaultModal}
+
                   showPossibleClientModal={showPossibleClientModal}
                   setShowPossibleClientModal={setShowPossibleClientModal} />
-            
-            <Footer />
-         </section>
 
-      </main>
+               <Footer />
+            </section>
+
+         </main>
+      </>
 
    )
 }
