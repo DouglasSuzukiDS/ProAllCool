@@ -44,7 +44,7 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
    return(
       <>
          <section id="excursions" 
-            className="flex flex-wrap justify-center gap-4 border-4 border-cyan-600 w-full h-full rounded-lg z-10 relative overflow-y-auto customScroll" >
+            className="flex flex-wrap items-center justify-center gap-4 border-4 border-cyan-600 w-full h-full rounded-lg z-10 relative overflow-y-auto customScroll" >
 
             <div id="excursionsArea" className={`z-0 flex flex-wrap p-2 justify-center gap-4 rounded-lg h-[50px]overflow-y-auto customScroll`}>
 

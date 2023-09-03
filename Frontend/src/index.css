@@ -46,6 +46,7 @@ select option {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 20;
   position: absolute;
+  padding: 0 16px;
 }
 
 .logo-header {
@@ -104,8 +105,27 @@ table td:last-child, th td:last-child, tr td:last-child, td td:last-child {
   border-right: none;
 }
 
+.borderDev {
+  transition: all ease 0.7s !important;
+}
+.borderDev .avatar {
+  transition: all ease 0.7s !important;
+}
+.borderDev:hover {
+  border-color: #93C5FD !important;
+}
+.borderDev:hover .avatar {
+  border-color: #2563EB !important;
+}
+
 .logo-footer {
   width: 150px;
+}
+
+.cardClients img {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50%;
 }
 
 @media (max-width: 1225px) {
@@ -162,6 +182,17 @@ table td:last-child, th td:last-child, tr td:last-child, td td:last-child {
   }
   #developersContainer p, #developersContainer p span {
     font-size: 14px;
+  }
+}
+@media (max-width: 570px) {
+  .cardClients {
+    width: 100%;
+    height: 250px;
+    gap: 0;
+    flex-direction: column !important;
+  }
+  .cardClients p {
+    width: 100%;
   }
 }
 @media (max-width: 450px) {

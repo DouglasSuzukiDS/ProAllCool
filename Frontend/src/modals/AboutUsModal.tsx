@@ -1,6 +1,6 @@
 import { XMark } from "../assets/icons/XMark"
 import { Modal } from "../types/Modal"
-import MDSoftwareHouse from '../assets/icons/Logo.svg'
+import MDSoftwareHouse from '../assets/icons/LogoMD.svg'
 import { Envelope } from "../assets/icons/Envelope"
 import { Instagram } from "../assets/icons/Instagram"
 
@@ -11,7 +11,7 @@ export const AboutUsModal = ({ close }: Modal) => {
 
                 <div className="flex justify-between items-center gap-2 mb-2">
                     <div className="flex justify-center text-sky-600 text-bold underline text-3xl w-full hover:scale-110 transition-all duration-700">
-                        <img src={MDSoftwareHouse} alt="MD Software House Logo" className="MDSH-Logo" />
+                        <img src={MDSoftwareHouse} alt="MD Software House Logo" className="w-[90%]" />
                     </div>
 
                     <XMark w="32" h="32" onClick={close} fill="#202225" className="cursor-pointer transition-all duration-700 hover:opacity-70" />

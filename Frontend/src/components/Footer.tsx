@@ -9,7 +9,7 @@ export const Footer = () => {
 
          <div className="flex gap-4 text-gray-600">
             <p>Todos direitos reservados</p>
-            <p>CNPJ: 000.000.000.6924-51</p>
+            <p>CNPJ: 000.666.171.6924-51</p>
          </div>
       </footer>
    )

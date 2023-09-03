@@ -21,6 +21,8 @@ import PattayaTour01 from '../assets/images/PattayaTour01.png'
 import DefaultImage from '../assets/images/DefaultImage.png'
 import { Excursion } from '../types/Excursion'
 import { useAuth } from '../hooks/Hooks'
+import { ToggleOn } from '../assets/icons/ToggleOn'
+import { ToggleOff } from '../assets/icons/ToggleOff'
 
 
 export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setThumbnailExc, setTitleExc, setPrevValueExc, setCurrentValueExc, setDescriptionExc, setDateExc, setReturnExc, setOpenModalExc, setShowPossibleClientModal }: Props) => {
@@ -100,6 +102,11 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setTh
       }
    }
 
+   // Toogle Active Excursion
+   const toogleActiveExcursion = (idExc: number, activeExc: boolean) => {
+      excursionCTX?.toggleActiveExcursion(idExc, !activeExc)
+   }
+
    // Delete Excursion
    const handleDeleteExcursion = (id: number) => {
       excursionCTX?.deleteExcursion(id)
@@ -151,13 +158,31 @@ export const ExcursionItem = ({ showModal, excursion, setToEdit ,setIdExc, setTh
                   </span>
 
                   { auth?.auth &&
-                     <span className='flex gap-2'>
-                        <PenToSquare w='24' h='24' fill='#0284C7' className='hover:opacity-60 hover:duration-700'
-                           onClick={() => handleGetExcursionToEdit(excursion)} />
-
-                        <TrashCan w='24' h='24' fill='#DC2626'
-                           className='hover:opacity-60 hover:duration-700'
-                           onClick={() => handleDeleteExcursion(excursion.idExc!)} />
+                     <span className='flex items-center gap-4'>
+                        { excursion.activeExc ?
+                           <button title='Desativar' 
+                              className='w-[85.7px]  flex items-center justify-between font-bold text-blue-600'
+                              onClick={ () => toogleActiveExcursion(excursion.idExc!, excursion.activeExc!) }>
+                              Ativa
+                              <ToggleOn w='24' h='24' fill='#2563EB' /> 
+                           </button>:
+                           <button title='Ativar' 
+                              className='flex items-center justify-center gap-2 font-bold text-purple-600'
+                              onClick={ () => toogleActiveExcursion(excursion.idExc!, excursion.activeExc!) }>
+                              Desativa
+                              <ToggleOff w='24' h='24' fill='#9333EA' />
+                           </button>
+                        }
+                        <button title='Editar'>
+                           <PenToSquare w='24' h='24' fill='#0284C7' className='hover:opacity-60 hover:duration-700'
+                              onClick={() => handleGetExcursionToEdit(excursion)} />
+                        </button>
+                        
+                        <button title='Deletar'>
+                           <TrashCan w='24' h='24' fill='#DC2626'
+                              className='hover:opacity-60 hover:duration-700'
+                              onClick={() => handleDeleteExcursion(excursion.idExc!)} />
+                        </button>
                      </span>
                   }
                </div>

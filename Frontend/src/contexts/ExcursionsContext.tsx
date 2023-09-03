@@ -71,7 +71,7 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
                getExcursions()
             }
          })
-         .then(err => console.log(err))
+         .catch(err => console.log(err))
    }
 
    const deleteExcursion = async(idExcursion: number) => {
@@ -81,9 +81,13 @@ export const ExcursionsProvider = ({ children }: ExcursionsContextProviderType) 
             if(res.status === 200) {
                alert('Excursão deletada com sucesso!')
                getExcursions()
-            }
+            } 
          })
-         .catch(err => console.log(err))
+         .catch(err => {
+            console.log(err)
+
+            alert(`Existe possíveis clientes vinculados a excursão, consequentemente não é possível deletar. Caso deseje deletar, exclua todos os possíveis clientes vinculados a excursão.`)
+         })
    }
 
    return(

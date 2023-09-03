@@ -100,7 +100,7 @@ export const PossibleClientModal = ({ close }: Modal) => {
                            value={ nameExc }
                            onChange={ e => setNameExc(e.target.value) }>
                               <option value="Outra excursão">Outra Excursão</option>
-                              { excursionsCTX?.excursions.filter(excursion => excursion.idExc !== 1).map(exc => (
+                              { excursionsCTX?.excursions.filter(excursion => excursion.idExc !== 1 && excursion.activeExc).map(exc => (
                                  <option value={ exc.titleExc }> { exc.titleExc } </option>
                               )) }
                         </select>

@@ -55,6 +55,7 @@ select {
   background-color: #0006;
   z-index: 20;
   position: absolute;
+  padding: 0 16px;
   // border-radius: 8px;
 }
 
@@ -131,9 +132,35 @@ table, th, tr, td {
   
 }
 
+// Developers 
+.borderDev {
+  transition: all ease .7s !important;
+
+  .avatar {
+    transition: all ease .7s !important;
+  }
+
+  &:hover {
+    border-color: #93C5FD !important; // Blue-300
+
+    .avatar {
+        border-color: #2563EB !important; // Blue-600
+    }
+  }
+}
+    
 // Footer 
 .logo-footer {
   width: 150px;
+}
+
+//Depositations Modal 
+.cardClients {
+  img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50%;
+  }
 }
 
 // @media (max-width: 500px) {
@@ -210,6 +237,19 @@ table, th, tr, td {
 
     p, p span {
       font-size: 14px;
+    }
+  }
+}
+
+@media(max-width: 570px) {
+  .cardClients {
+    width: 100%;
+    height: 250px;
+    gap: 0;
+    flex-direction: column !important;
+
+    p {
+      width: 100%;
     }
   }
 }

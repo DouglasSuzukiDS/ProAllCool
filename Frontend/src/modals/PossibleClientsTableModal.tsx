@@ -35,53 +35,77 @@ export const PossibleClientsTableModal = ({ close }: Modal) => {
 
             <div className="tableArea my-4 p-2 flex justify-center max-h-[470px] border-2 rounded-lg border-blue-600">
                
-               <div className='overflow-y-auto customScroll pr-2'>
-                  <table className='border-2 border-blue-600 rounded-lg overflow-y-auto h-[200px]'>
-                     <thead className='border-b border-blue-600 bg-blue-300 text-blue-600'>
-                        <tr>
-                           <th> Contatado </th>
-                           <th> Id PS </th>
-                           <th> Id Exc </th>
-                           <th> Excursão </th>
-                           <th> Nome </th>
-                           <th> Email </th>
-                           <th> Telefone </th>
-                           <th> Instagram </th>
-                           <th> Ação </th>
-                        </tr>
-                     </thead>
-
-                     <tbody>
-                        {PossibleClientCTX?.possibleClient.map(posClient => (
-                           <tr key={posClient.idPosClient}>
-                              <td className='flex justify-center'>
-                                 {!posClient.contactedPosClient ?
-                                    <Square w='24' h='24' fill='#0284C7'
-                                       className='cursor-pointer hover:opacity-60 hover:duration-700'
-                                       onClick={() => toggleContactedClient(posClient.idPosClient!, posClient.contactedPosClient!)} /> :
-                                    <SquareXMark w='24' h='24' fill='#0284C7'
-                                       className='cursor-pointer hover:opacity-60 hover:duration-700'
-                                       onClick={() => toggleContactedClient(posClient.idPosClient!, posClient.contactedPosClient!)} />
-                                 }
-                              </td>
-                              <td>{posClient.idPosClient}</td>
-                              <td>{posClient.idExc}</td>
-                              <td>{posClient.nameExc}</td>
-                              <td>{posClient.namePosClient}</td>
-                              <td>{posClient.emailPosClient}</td>
-                              <td>{posClient.telPosClient}</td>
-                              <td>{posClient.instaPosClient}</td>
-                              <td className='flex justify-center'>
-                                 <TrashCan w='24' h='24' fill='#DC2626'
-                                    className='cursor-pointer hover:opacity-60 hover:duration-700'
-                                    onClick={() => handleDeletePosClient(posClient.idPosClient!)} />
-                              </td>
+               {  PossibleClientCTX?.possibleClient && 
+                  PossibleClientCTX.possibleClient.length > 0 ?
+                  <div className='overflow-y-auto customScroll pr-2'>
+                     <table className='border-2 border-blue-600 rounded-lg overflow-y-auto h-[200px]'>
+                        <thead className='border-b border-blue-600 bg-blue-300 text-blue-600'>
+                           <tr>
+                              <th> Contatado </th>
+                              <th> Id PS </th>
+                              <th> Id Exc </th>
+                              <th> Excursão </th>
+                              <th> Nome </th>
+                              <th> Email </th>
+                              <th> Telefone </th>
+                              <th> Instagram </th>
+                              <th> Ação </th>
                            </tr>
-                        ))}
-                     </tbody>
+                        </thead>
 
-                  </table>
-               </div>
+                        <tbody>
+                           {PossibleClientCTX?.possibleClient.map(posClient => (
+                              <tr key={posClient.idPosClient}>
+                                 <td className='flex justify-center'>
+                                    {!posClient.contactedPosClient ?
+                                       <Square w='24' h='24' fill='#0284C7'
+                                          className='cursor-pointer hover:opacity-60 hover:duration-700'
+                                          onClick={() => toggleContactedClient(posClient.idPosClient!, posClient.contactedPosClient!)} /> :
+                                       <SquareXMark w='24' h='24' fill='#0284C7'
+                                          className='cursor-pointer hover:opacity-60 hover:duration-700'
+                                          onClick={() => toggleContactedClient(posClient.idPosClient!, posClient.contactedPosClient!)} />
+                                    }
+                                 </td>
+
+                                 <td>{posClient.idPosClient}</td>
+
+                                 <td>{posClient.idExc}</td>
+
+                                 <td className={ posClient.contactedPosClient ? 'line-through italic' : '' }>      
+                                    {posClient.nameExc}
+                                 </td>
+
+                                 <td className={ posClient.contactedPosClient ? 'line-through italic' : '' }>
+                                    {posClient.namePosClient}
+                                 </td>
+
+                                 <td className={ posClient.contactedPosClient ? 'line-through italic' : '' }>
+                                    {posClient.emailPosClient}
+                                 </td>
+
+                                 <td className={ posClient.contactedPosClient ? 'line-through italic' : '' }>
+                                    {posClient.telPosClient}
+                                 </td>
+
+                                 <td className={ posClient.contactedPosClient ? 'line-through italic' : '' }>
+                                    {posClient.instaPosClient}
+                                 </td>
+                                 
+                                 <td className='flex justify-center'>
+                                    <TrashCan w='24' h='24' fill='#DC2626'
+                                       className='cursor-pointer hover:opacity-60 hover:duration-700'
+                                       onClick={() => handleDeletePosClient(posClient.idPosClient!)} />
+                                 </td>
+                              </tr>
+                           ))}
+                        </tbody>
+
+                     </table>
+                  </div> : 
+                  <p className="flex justify-center items-center font-bold text-3xl text-sky-600 h-full">
+                     Não há nenhum cadastro de um possível cliente.
+                  </p>
+               }
 
             </div>
          </article>
