@@ -48,7 +48,7 @@ export const FormExcursion = ({
             prevValueExc: prevValueExc!,
             currentValueExc: currentValueExc!,
             descriptionExc: descriptionExc!,
-            dateExc: descriptionExc!,
+            dateExc: dateExc!,
             returnExc: returnExc!,
             //openModal: openModalExc !== '' ? `< ${openModalExc} />` : '< DefaultModal />', 
             openModal: openModalExc !== '' ? openModalExc! : 'DefaultModal', 

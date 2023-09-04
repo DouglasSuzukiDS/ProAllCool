@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react' 
+import { useState, useEffect, useContext, KeyboardEvent } from 'react' 
 import { Envelope } from "../assets/icons/Envelope"
 import { Instagram } from "../assets/icons/Instagram"
 import { WhatsApp } from "../assets/icons/WhatsApp"
@@ -10,6 +10,12 @@ import { usePossibleClient } from '../hooks/Hooks'
 import { ExcursionsContext } from '../contexts/ExcursionsContext'
 
 export const PossibleClientModal = ({ close }: Modal) => {
+   const btnHover = [
+      'hover:text-blue-300',
+      'hover:border-blue-300',
+      'hover:bg-blue-600'
+   ].join(' ')
+
    const [idExc, setIdExc] = useState(1)
    const [nameExc, setNameExc] = useState('Outra excursão')
    const [name, setName] = useState('')
@@ -45,7 +51,7 @@ export const PossibleClientModal = ({ close }: Modal) => {
             instaPosClient: insta
          })
 
-         setNameExc('')
+         setNameExc('Outra excursão')
          setName('')
          setEmail('')
          setTel('')
@@ -65,11 +71,13 @@ export const PossibleClientModal = ({ close }: Modal) => {
       }
    }
 
-   const btnHover = [
-      'hover:text-blue-300',
-      'hover:border-blue-300',
-      'hover:bg-blue-600'
-   ].join(' ')
+   const keyUpEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+      if(name !== '' && email !== '' && tel !== '' && e.code.toLocaleLowerCase() === 'enter') {
+         handleNewPossibleClient()
+      }
+   }
+
+   
 
    return(
       <section className="modal flex justify-center items-center">
@@ -92,7 +100,7 @@ export const PossibleClientModal = ({ close }: Modal) => {
                <div className="flex flex-col text-indigo-600 w-fit">
                   <form className='flex flex-col gap-1 font-bold'>
 
-                     <span className="flex justify-center items-center gap-1 py-1 border-b border-sky-600">
+                     <span className="flex justify-between items-center gap-1 py-1 border-b border-sky-600">
                         <MapLocationDot w="24" h="24" fill="#9333EA" />
 
                         <select
@@ -130,7 +138,8 @@ export const PossibleClientModal = ({ close }: Modal) => {
                         <input type="text" placeholder='WhatsApp'
                            className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400'
                            value={ tel }
-                           onChange={ e => setTel(e.target.value) } />
+                           onChange={ e => setTel(e.target.value) } 
+                           onKeyUp={ keyUpEnter } />
                      </span>
 
                      <span className="flex justify-center items-center gap-2 py-1 border-b border-sky-600">
@@ -139,7 +148,8 @@ export const PossibleClientModal = ({ close }: Modal) => {
                         <input type="text" placeholder='@Instagram'
                            className='bg-transparent text-center text-sky-600 placeholder:text-indigo-400'
                            value={ insta }
-                           onChange={ e => setInsta(e.target.value) } />
+                           onChange={ e => setInsta(e.target.value) } 
+                           onKeyUp={ keyUpEnter } />
                      </span>
                   </form>
 

@@ -60,7 +60,7 @@ export const DevelopersModal = ({ close }: Modal) => {
                         <GitHub w="32" h="32" />
                      </a>
 
-                     <a href="https://www.linkedin.com/in/douglas-suzuki-775822219/" target="_blank"
+                     <a href="https://www.linkedin.com/in/mathias-ssilva/" target="_blank"
                         className=" transition-all duration-700 hover:opacity-70">
                         <Linkedin fill="#F00" w="32" h="32" />
                      </a>

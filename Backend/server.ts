@@ -35,7 +35,7 @@ server.get('/excursions', (req, res) => {
 server.get('/excursion/:id', (req, res) => {
    const { id } = req.params
 
-   const query = `SELECT * FROM excursions WHERE id = ?`
+   const query = `SELECT * FROM excursions WHERE idExc = ?`
 
    db.query(query, [id], (err, result) => {
       if(err) {
@@ -120,7 +120,7 @@ server.put('/excursion/active/:idExc', (req, res) => {
 server.delete('/excursion/:id', (req, res) => {
    const { id } = req.params
 
-   const checkIfExcursionExist = `SELECT * FROM excursions WHERE id = ?`
+   const checkIfExcursionExist = `SELECT * FROM excursions WHERE idExc = ?`
    const query = `DELETE FROM excursions WHERE idExc = ${ id }`
 
    db.query(checkIfExcursionExist, [id], (err, result) => {

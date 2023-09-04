@@ -11,7 +11,7 @@ CREATE TABLE excursions (
   descriptionExc MEDIUMTEXT NOT NULL,
   dateExc VARCHAR(20) NOT NULL,
   returnExc VARCHAR(20) NOT NULL,
-  activeExc BOOLEAN DEFAULT false,
+  activeExc BOOLEAN DEFAULT true,
   openModal VARCHAR(100) NOT NULL
 );
 

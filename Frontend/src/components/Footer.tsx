@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import ProAllCool from '../assets/icons/ProAllCoolLogo.svg'
 
 export const Footer = () => {
    return(
       <footer className="flex justify-between items-center text-xs gap-4 h-auto">
-         <div>
+         <Link to='/secret'>
             <img src={ ProAllCool } alt="Pro AllCool Logo" className='logo-footer' />
-         </div>
+         </Link>
 
          <div className="flex gap-4 text-gray-600">
             <p>Todos direitos reservados</p>

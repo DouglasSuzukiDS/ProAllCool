@@ -69,7 +69,7 @@ export const Excursions = ({ showModal, setShowPossibleClientModal }: Props) => 
 
                {
                   excursionsCTX?.excursions && 
-                  excursionsCTX?.excursions.length <= 0 && 
+                  excursionsCTX?.excursions.length <= 1 && 
                   <p className="flex justify-center items-center font-bold text-3xl text-sky-600 h-full">
                      Não há excursões ativas.
                   </p>

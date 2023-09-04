@@ -20,7 +20,7 @@ export const Header = ({ showDevelopersModal, setShowDevelopersModal, showAboutU
    return (
       <header className="flex justify-between border-b h-auto border-blue-600">
          <span id="logo" className="text-2xl font-bold">
-            <Link to='/secret'>
+            <Link to='/'>
                <img src={ Logo } alt="Logo Pro AllCool" className="logo-header" />
             </Link>
          </span>

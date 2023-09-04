@@ -87,6 +87,7 @@ table th, table td, th th, th td, tr th, tr td, td th, td td {
   padding: 8px;
 }
 table tbody tr, th tbody tr, tr tbody tr, td tbody tr {
+  height: auto;
   transition: all ease 0.7s;
 }
 table tbody tr:hover, th tbody tr:hover, tr tbody tr:hover, td tbody tr:hover {
