@@ -1,11 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-main {
-  background: linear-gradient(89deg, #0D1739 0%, #223756 45.43%, #1B2368 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
 @font-face {
   font-family: "Roboto";
   src: url("../public/Fonts/Roboto-Regular.ttf");
@@ -15,6 +10,11 @@ main {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto";
+}
+
+main, .error {
+  background: linear-gradient(89deg, #0D1739 0%, #223756 45.43%, #1B2368 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 input, textarea {

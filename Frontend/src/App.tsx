@@ -110,29 +110,6 @@ function App() {
          
          <main className="w-full h-screen flex justify-center p-2">
             <section className="container container-lg flex justify-between flex-col p-4 h-full border border-yellow-600 rounded-lg relative">
-
-               {/* Modals */}
-               {/* {showBahamasModal && <BahamasModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
-
-            {showUfoModal && <UfoModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
-
-            {showJapanModal && <JapanModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
-
-            {showTambabaModal && <TambabaModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
-
-            {showSaoThomeModal && <SaoThomeModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
-
-            {showPattayaModal && <PattayaModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
-
-            {showDefaultModal && <DefaultModal close={closeModal} showFormPossibleClient={ showFormPossibleClient } />}
-
-            {showPossibleClientModal && <PossibleClientModal close={closeModal} />}
-
-            {showDevelopersModal && <DevelopersModal close={closeModal} />}
-            {showAboutUsModal && <AboutUsModal close={closeModal} />}
-            {showContactModal && <ContactModal close={closeModal} />}
-            {showDepositionsModal && <DepositionsModal close={closeModal} />}
-            { showPossibleClientsTableModal && <PossibleClientsTableModal close={ closeModal } /> } */}
             
             <div className='h-auto'>
                <Header

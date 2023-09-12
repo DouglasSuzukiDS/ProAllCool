@@ -51,7 +51,7 @@ export const DevelopersModal = ({ close }: Modal) => {
                   </p>
 
                   <p className="first-letter:ml-4 max-h-[216px] overflow-y-auto customScroll">
-                  Formado em <span className="font-bold">Técnico em Informática</span> pelo Senac, com certificações em <span className="font-bold">Assistente de Suporte e Manutenção de Computadores</span>, <span className="font-bold">Assistente de Operação de Redes de Computadores</span> e <span className="font-bold">Desenvolvimento de Aplicativos </span>, sendo eles para WEB <span className="font-bold">(HTML, Javascript, CSS, React)</span> e  Desktop <span className="font-bold">(C#)</span>.
+                  Formado em <span className="font-bold">Técnico em Informática</span> pelo Senac, com certificações em <span className="font-bold">Assistente de Suporte e Manutenção de Computadores</span>, <span className="font-bold">Assistente de Operação de Redes de Computadores</span> e <span className="font-bold">Desenvolvimento de Aplicativos </span>, sendo eles para WEB <span className="font-bold">(HTML, Javascript, CSS, React, Bootstrap)</span> e  Desktop <span className="font-bold">(C#)</span>.
                   </p>
 
                   <span className="flex justify-center items-center gap-4">
@@ -85,7 +85,7 @@ export const DevelopersModal = ({ close }: Modal) => {
                   </p>
 
                   <p className="first-letter:ml-4 max-h-[150px] overflow-y-auto customScroll">
-                     <span className="font-bold">Técnico em Informática</span> pelo Senac, com certificações focadas no <span className="font-bold">desenvolvimento Frontend (React, Typescript, Node, TailwindCSS)</span> pela B7WEB, e <span className="font-bold">AWS Cloud Practitioner Foundational</span> pelo Senai.
+                     <span className="font-bold">Técnico em Informática</span> pelo Senac, com certificações focadas no <span className="font-bold">desenvolvimento Fullstack (React, Typescript, Node, TailwindCSS, MySQL)</span> pela B7WEB, e <span className="font-bold">AWS Cloud Practitioner Foundational</span> pelo Senai.
                   </p>
 
                   <span className="flex justify-center items-center gap-4">
