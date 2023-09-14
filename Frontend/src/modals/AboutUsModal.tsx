@@ -20,7 +20,7 @@ export const AboutUsModal = ({ close }: Modal) => {
                 <div className="flex flex-col items-center">
                     <section className="flex flex-col gap-2">
                         <p className="first-letter:ml-4">
-                            A MD Software House, surgiu pela fala de um docente, quando os seus fundadores, <span className="font-bold">Mathias</span> e <span className="font-bold">Douglas</span> cursavam curso Técnico em Informática. Onde o docente em questão sempre falava na brincadeira, que o Mathias já poderia abrir uma empresa de desenvolvimento junto dos seus irmãos, onde os seus irmãos cursarem o mesmo ocurso e tiveram o mesmo docente.
+                            A MD Software House, surgiu pela fala de um docente, quando os seus fundadores, <span className="font-bold">Mathias</span> e <span className="font-bold">Douglas</span> cursavam curso Técnico em Informática. Onde o docente em questão sempre falava na brincadeira, que o Mathias já poderia abrir uma empresa de desenvolvimento junto dos seus irmãos, onde os seus irmãos cursaram o mesmo ocurso e tiveram o mesmo docente.
                         </p>
 
                         <p className="first-letter:ml-4">
@@ -28,7 +28,7 @@ export const AboutUsModal = ({ close }: Modal) => {
                         </p>
 
                         <p className="first-letter:ml-4">
-                            Atualmente a empresa MDSF, não se prente apenas em desenvolvimento, possuímos ramificações em diversos setores além de desenvolvimento. Atuando na área de Marketing, E-commerce, Turismo & Comércio.
+                            Atualmente a empresa MDSF, não se prende apenas em desenvolvimento, possuímos ramificações em diversos setores além de desenvolvimento. Atuando na área de Marketing, E-commerce, Turismo & Comércio.
                         </p>
 
                         <p className="flex flex-col items-center gap-2">
